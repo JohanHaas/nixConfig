@@ -8,7 +8,7 @@
   
   programs.waybar = {
     enable = true;
-    style = builtins.readFile ./assets/waybar-style.css;
+    style = builtins.readFile ./waybar-style.css;
     package = inputs.waybar.packages.${pkgs.system}.waybar;
     settings = {
       mainBar = {
