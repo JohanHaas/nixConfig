@@ -20,12 +20,6 @@
       config.allowUnfree = true;
     };
 
-    moduleArgs = {
-      inherit pkgs;
-      inherit (nixpkgs.lib) lib;
-      inherit home-manager;
-    };
-
   in {
 
     #nixos-configurations
@@ -33,20 +27,22 @@
     nixosConfigurations = {
       nix-tests = nixpkgs.lib.nixosSystem {
         inherit system;
-        extraSpecialArgs = { inherit inputs self; };
+        specialArgs = { inherit inputs self; };
         modules = [
           ./hosts/common
+          ./usrs
           ./hosts/nix-tests
           inputs.home-manager.nixosModules.default
         ];
       };
 
-      nixos-johan = nixpkgs.lib.nixosSystem {
+      nix-vm = nixpkgs.lib.nixosSystem {
         inherit system;
-        extraSpecialArgs = { inherit inputs self; };
+        specialArgs = { inherit inputs self; };
         modules = [ 
           ./hosts/common
-          ./hosts/nixos-johan
+          ./usrs
+          ./hosts/nix-vm
           inputs.home-manager.nixosModules.default
           ];
       };
@@ -57,6 +53,16 @@
     
     homeConfigurations = {
       "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        inherit system;
+        specialArgs = { inherit inputs self; };
+        modules = [
+          ./home/common
+          ./home/johan
+        ];
+      };
+
+      "johan@nix-vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         inherit system;
         extraSpecialArgs = { inherit inputs self; };
