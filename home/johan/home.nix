@@ -2,6 +2,11 @@
 
 {
 
+  imports = [
+    ../modules/Hyprland.nix
+    ../modules/waybar.nix
+  ];
+
   home.username = "johan";
   home.homeDirectory = "/home/johan";
 
