@@ -65,7 +65,7 @@
       "johan@nix-vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         inherit system;
-        extraSpecialArgs = { inherit inputs self; };
+        SpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
           ./home/johan
