@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
 {
   imports = [
         
@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     git
     neofetch
+    home-manager
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,6 +43,12 @@
     options = "--delete-older-than 30d";
     randomizedDelaySec = "30min";
     persistent = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
 }

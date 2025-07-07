@@ -6,6 +6,10 @@
       
     ];
 
+  environment.systemPackages = with pkgs; [
+    
+  ];
+  
   networking.hostName = "nix-vm";
 
 
@@ -14,10 +18,8 @@
     variant = "";
   };
 
-  environment.systemPackages = with pkgs; [
-    
-  ];
-
   system.stateVersion = "25.05";
+
+  virtualisation.virtualbox.guest.enable = true;
 
 }
