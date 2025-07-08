@@ -67,7 +67,7 @@
     homeConfigurations = {
       "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        specialArgs = { inherit inputs self; };
+        extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
           ./home/johan
@@ -76,7 +76,7 @@
 
       "johan@nix-vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        SpecialArgs = { inherit inputs self; };
+        extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
           ./home/johan
