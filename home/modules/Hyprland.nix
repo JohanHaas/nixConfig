@@ -9,6 +9,7 @@
     gtk3
     nerd-fonts.jetbrains-mono
     bibata-cursors
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
   ];
 
@@ -35,7 +36,7 @@
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ /etc/nixConfig/assets/nix-wallpaper.jpg ];
+      preload = [ "/etc/nixConfig/assets/nix-wallpaper.jpg" ];
       wallpaper = [
         "eDP-1,/etc/nixConfig/assets/nix-wallpaper.jpg"
       ];
