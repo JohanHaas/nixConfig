@@ -70,7 +70,7 @@
     
     homeConfigurations = {
       "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        inherit pkgs;
         extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
