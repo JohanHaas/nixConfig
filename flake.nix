@@ -12,7 +12,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -21,8 +20,6 @@
     waybar.url = "github:Alexays/Waybar";
 
     hyprcursor.url = "github:hyprwm/hyprcursor";
-
-    wallpaperFetcher.url = "github:JohanHaas/nixos-wallpaper-fetcher";
     
   };
 

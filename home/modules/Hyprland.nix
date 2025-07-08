@@ -1,9 +1,5 @@
 #Hyprland configuration
 {config, pkgs, inputs, ...}:
-let
-  defaultWallpaperPath = inputs.wallpaperFetcher.packages.${pkgs.system}.lpapers;
-  defaultWallpaper = "${defaultWallpaperPath}/share/backgrounds/default.jpeg";
-in
 {
   home.packages = with pkgs; [
     libnotify
@@ -39,9 +35,9 @@ in
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "/etc/nixcfg/home/johan/modules/wallpaper/wallpaper-nix.jpg" ];
+      preload = [ /etc/nixConfig/assets/nix-wallpaper.jpg ];
       wallpaper = [
-        "eDP-1,/etc/nixcfg/home/johan/modules/wallpaper/wallpaper-nix.jpg"
+        "eDP-1,/etc/nixConfig/assets/nix-wallpaper.jpg"
       ];
     };
   };
