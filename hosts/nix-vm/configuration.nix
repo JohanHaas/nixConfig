@@ -20,6 +20,6 @@
 
   system.stateVersion = "25.05";
 
-  virtualisation.virtualbox.guest.enable = true;
-
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 }
