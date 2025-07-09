@@ -2,7 +2,7 @@
 
   inputs = {
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,7 +26,7 @@
 
     ags.url = "github:aylur/ags";
     
-  };
+  };    nixpkgs.url = "github:NixOS/nixpkgs/nixos";
 
   outputs = inputs@{self, nixpkgs, home-manager, ...}: 
   let
