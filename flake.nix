@@ -26,7 +26,7 @@
 
     ags.url = "github:aylur/ags";
     
-  };    nixpkgs.url = "github:NixOS/nixpkgs/nixos";
+  };
 
   outputs = inputs@{self, nixpkgs, home-manager, ...}: 
   let
