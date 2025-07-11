@@ -1,12 +1,15 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+  imports = [
+    ../modules/ags.nix
+  ];
   home.username = "johan";
   home.homeDirectory = "/home/johan";
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    inputs.ags.packages.${pkgs.system}.default
     nodejs_24
     typescript
   ];
