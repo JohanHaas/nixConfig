@@ -74,7 +74,7 @@
         extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
-          ./home/johan
+          ./home/johan_nix-tests
         ];
       };
 
@@ -83,7 +83,15 @@
         extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/common
-          ./home/johan
+          ./home/johan_nix-tests
+        ];
+      };
+
+      "johan@mint" = home-manager.lib.homeManagerConfiguration { 
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs self; };
+        modules = [
+          ./home/johan_mint
         ];
       };
     };
