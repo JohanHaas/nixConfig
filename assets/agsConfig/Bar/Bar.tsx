@@ -20,17 +20,12 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             exclusivity={Astal.Exclusivity.EXCLUSIVE}
             anchor={TOP | LEFT | RIGHT}
             application={app}
-            heightRequest={24}
         >
-            <box 
-                orientation={Gtk.Orientation.HORIZONTAL}
-                hexpand
-                halign={Gtk.Align.FILL}
-                valign={Gtk.Align.CENTER}
-            >
-            
-                < Clock />
-            </box>
+            <centerbox hexpand={true}>
+                <box $type="center">
+                    < Clock />
+                </box>
+            </centerbox>
         </window>
     )
 }
