@@ -81,6 +81,7 @@
         modules = [
           ./home/common
           ./home/johan_nix-tests
+          inputs.ags.homeManagerModules.default
         ];
       };
 
