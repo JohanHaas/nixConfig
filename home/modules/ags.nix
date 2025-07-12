@@ -6,7 +6,7 @@
 
     programs.ags = {
         enable = true;
-        configDir = ./ags;
+        configDir = inputs.AgsConfig.packages.${pkgs.system}.default;
         extraPackages = with pkgs; [
             fzf
         ];
