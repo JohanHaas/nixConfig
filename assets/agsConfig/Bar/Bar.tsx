@@ -20,6 +20,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             exclusivity={Astal.Exclusivity.EXCLUSIVE}
             anchor={TOP | LEFT | RIGHT}
             application={app}
+            layer={Astal.Layer.TOP}
         >
             <centerbox hexpand={true}>
                 <box $type="center">
