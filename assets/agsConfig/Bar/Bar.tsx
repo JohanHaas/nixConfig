@@ -22,11 +22,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             application={app}
             heightRequest={24}
         >
-            <centerbox>
-                <box $type="start">
-                    < Clock />
-                </box>
-            </centerbox>
+            <box 
+                orientation={Gtk.Orientation.HORIZONTAL}
+                hexpand
+                halign={Gtk.Align.FILL}
+                valign={Gtk.Align.CENTER}
+            >
+            
+                < Clock />
+            </box>
         </window>
     )
 }
