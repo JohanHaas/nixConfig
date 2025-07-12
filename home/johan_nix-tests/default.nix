@@ -13,7 +13,7 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    inputs.ags.packages.${pkgs.system}.ags
+    ags
   ];
 
   home.file = {
