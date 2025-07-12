@@ -21,15 +21,6 @@
     waybar.url = "github:Alexays/Waybar";
 
     hyprcursor.url = "github:hyprwm/hyprcursor";
-
-    astal.url = "github:aylur/astal";
-
-    ags.url = "github:aylur/ags";
-
-    agsConfig = {
-      url = "github:JohanHaas/agsConfig";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
   };
 
