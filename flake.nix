@@ -25,6 +25,11 @@
     astal.url = "github:aylur/astal";
 
     ags.url = "github:aylur/ags";
+
+    agsConfig = {
+      url = "github:JohanHaas/agsConfig";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
   };
 
