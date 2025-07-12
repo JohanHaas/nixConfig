@@ -22,11 +22,15 @@
 
     hyprcursor.url = "github:hyprwm/hyprcursor";
 
-    astal.url = "github:aylur/astal";
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.astal.follows = "astal";
     };
   };
 
@@ -94,6 +98,7 @@
         extraSpecialArgs = { inherit inputs self; };
         modules = [
           ./home/johan_mint
+          inputs.ags.homeManagerModules.default
         ];
       };
     };

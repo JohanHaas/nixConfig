@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     nodejs_24
+    typescript
   ];
 
 
@@ -24,5 +25,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
 }
 
