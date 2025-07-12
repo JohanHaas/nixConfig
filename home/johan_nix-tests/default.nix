@@ -5,6 +5,7 @@
   imports = [
     ../modules/Hyprland.nix
     ../modules/waybar.nix
+    ../modules/ags.nix
   ];
 
   home.username = "johan";
@@ -13,7 +14,7 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    ags
+    
   ];
 
   home.file = {
