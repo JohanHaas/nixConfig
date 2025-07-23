@@ -1,10 +1,16 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
   imports = [
     ../modules/ags.nix
     ../modules/nvf.nix
+    ../modules/zsh.nix
   ];
   home.username = "johan";
   home.homeDirectory = "/home/johan";
@@ -15,17 +21,15 @@
     typescript
   ];
 
-
   home.file = {
 
   };
 
   home.sessionVariables = {
-    
+
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
 }
-

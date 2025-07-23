@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   self,
+  lib,
   ...
 }:
 let
@@ -12,7 +13,6 @@ in
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
-
   home.packages = with pkgs; [
     nerd-fonts.hack
   ];
@@ -23,13 +23,12 @@ in
     enable = true;
     settings = {
       vim = {
+        luaConfigRC = lib.mkAfter {
+          data = luaContent;
+        };
+
         viAlias = true;
         vimAlias = true;
-
-        spellcheck = {
-          enable = true;
-          programmingWordlist.enable = true;
-        };
 
         lsp = {
           enable = true;
@@ -102,10 +101,34 @@ in
           enable = true;
           gitsigns.enable = true;
           gitsigns.codeActions.enable = false; # throws an annoying debug message
-          neogit.enable = isMaximal;
+          neogit.enable = true;
         };
 
         autocomplete.blink-cmp.enable = true;
+
+        dashboard = {
+          dashboard-nvim.enable = false;
+          alpha.enable = true;
+        };
+
+        notify = {
+          nvim-notify.enable = true;
+        };
+
+        utility = {
+          surround.enable = true;
+        };
+
+        ui = {
+          borders.enable = true;
+          noice.enable = true;
+          illuminate.enable = true;
+        };
+
+        session = {
+          nvim-session-manager.enable = true;
+        };
+
       };
     };
   };
