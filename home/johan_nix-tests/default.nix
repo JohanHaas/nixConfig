@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
@@ -6,6 +11,7 @@
     ../modules/Hyprland.nix
     ../modules/waybar.nix
     ../modules/ags.nix
+    ../modules/nvf.nix
   ];
 
   home.username = "johan";
