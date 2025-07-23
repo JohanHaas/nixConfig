@@ -4,6 +4,7 @@
 
   imports = [
     ../modules/ags.nix
+    ../modules/nvf.nix
   ];
   home.username = "johan";
   home.homeDirectory = "/home/johan";

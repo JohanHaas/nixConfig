@@ -6,6 +6,7 @@
 
     home.packages = with pkgs; [
       gnome-shell
+      inputs.astal.packages.${pkgs.system}.network
     ];
 
     programs.ags = {
@@ -13,7 +14,6 @@
         configDir = "${inputs.self}/assets/agsConfig";
         extraPackages = with pkgs; [
             inputs.astal.packages.${pkgs.system}.default
-
             fzf
         ];
     };

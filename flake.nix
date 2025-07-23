@@ -32,6 +32,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.astal.follows = "astal";
     };
+
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
   };
 
   outputs = inputs@{self, nixpkgs, home-manager, ...}: 
