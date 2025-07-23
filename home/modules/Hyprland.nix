@@ -1,5 +1,10 @@
 #Hyprland configuration
-{config, pkgs, inputs, ...}:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     libnotify
@@ -12,7 +17,6 @@
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
   ];
-
 
   xdg.portal = {
     enable = true;
@@ -43,14 +47,11 @@
     };
   };
 
-
-
-
   #Hyprland
   wayland.windowManager.hyprland = {
 
     enable = true;
-    
+
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
@@ -60,36 +61,41 @@
     settings = {
       input = {
         kb_layout = "de";
-        natural_scroll = true;
+        natural_scroll = false;
       };
-      
+
       exec-once = [
         "hyprpaper"
         "hyprctl setcursor Bibata-Modern-Classic 20"
+        "waybar"
         "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
       "$mod" = "SUPER";
       #shortcuts
-      bind = [
-        #general short cuts
-        "$mod, Q, exec, ${pkgs.kitty}/bin/kitty --single-instance"
-        "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
-        "$mod SHIFT, Q, killactive,"
+      bind =
+        [
+          #general short cuts
+          "$mod, Q, exec, ${pkgs.kitty}/bin/kitty --single-instance"
+          "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
+          "$mod SHIFT, Q, killactive,"
 
-        #fullscreen
-        "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
+          #fullscreen
+          "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
 
-      ] ++ (
-        builtins.concatLists (builtins.genList (i:
-            let ws = i + 1;
-            in [
+        ]
+        ++ (builtins.concatLists (
+          builtins.genList (
+            i:
+            let
+              ws = i + 1;
+            in
+            [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
               "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]
-          )
-          9)
-      );
+          ) 9
+        ));
 
       #gui settings
 
@@ -102,8 +108,8 @@
 
         "col.active_border" = "rgba(cba6f7FF)";
         "col.inactive_border" = "rgba(444444aa)";
-        gaps_out = 5; #gaps between screen and window
-        gaps_in = 3; #gaps between windows
+        gaps_out = 5; # gaps between screen and window
+        gaps_in = 3; # gaps between windows
       };
     };
   };
