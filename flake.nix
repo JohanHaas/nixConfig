@@ -83,7 +83,7 @@
           ];
         };
 
-        nixos-Johan = nixpgs.lib.nixosSystem {
+        nixos-Johan = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs self; };
           modules = [
