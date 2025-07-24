@@ -15,6 +15,7 @@ in
   ];
   home.packages = with pkgs; [
     nerd-fonts.hack
+    wl-clipboard
   ];
 
   fonts.fontconfig.enable = true;

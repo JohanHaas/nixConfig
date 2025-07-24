@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    ./zsh.nix
+
   ];
 
   environment.systemPackages = with pkgs; [
@@ -61,5 +61,7 @@
     xwayland.enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
+
+  programs.zsh.enable = true;
 
 }

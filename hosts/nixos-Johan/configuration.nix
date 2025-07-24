@@ -14,4 +14,6 @@
   ];
 
   networking.hostName = "nixos-Johan";
+
+  system.stateVersion = "25.11";
 }

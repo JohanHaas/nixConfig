@@ -5,5 +5,6 @@
     ../ags.nix
     ../nvf.nix
     ../alacritty.nix
+    ../zsh.nix
   ];
 }

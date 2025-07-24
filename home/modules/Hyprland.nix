@@ -67,7 +67,7 @@
       #shortcuts
       bind = [
         #general short cuts
-        "$mod, Q, exec, ${pkgs.kitty}/bin/kitty --single-instance"
+        "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
         "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
         "$mod SHIFT, Q, killactive,"
 
@@ -93,6 +93,10 @@
       decoration = {
         rounding = 10; # Rundet die Fensterecken auf 10px
       };
+
+      windowrulev2 = [
+        "float,title:neovim_alacritty_floating"
+      ];
 
       general = {
         border_size = 3;
