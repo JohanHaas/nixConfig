@@ -63,6 +63,7 @@ in
           enableTreesitter = true;
           nix.enable = true;
           lua.enable = true;
+          python.enable = true;
         };
 
         visuals = {

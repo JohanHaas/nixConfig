@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-aichat | pandoc -f markdown -t man | less -R
+echo "Starte aichat-wrapper.sh" > /tmp/aichat.log
+aichat > /tmp/aichat-output.md 2>&1 &
+PID=$!
+wait $PID
+echo "aichat beendet" >> /tmp/aichat.log
 
+cat /tmp/aichat-output.md | pandoc -f markdown -t man | less -R
