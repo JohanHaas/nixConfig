@@ -19,6 +19,7 @@
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
     aichat
     jq
+    pandoc
   ];
 
   xdg.portal = {
@@ -102,7 +103,7 @@
       windowrulev2 = [
         "float,title:neovim_alacritty_floating"
         "float,title:aichat"
-        "workspace special:aichat silent, title^(aichat)$"
+        "workspace special:aichat, title:^(aichat)$"
       ];
 
       general = {
