@@ -8,9 +8,7 @@
 {
 
   imports = [
-    ../modules/ags.nix
-    ../modules/nvf.nix
-    ../modules/zsh.nix
+    ../modules/userImports/johan_mint.nix
   ];
   home.username = "johan";
   home.homeDirectory = "/home/johan";

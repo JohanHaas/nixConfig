@@ -24,15 +24,6 @@
     config.common.default = "*";
   };
 
-  #kitty
-  programs.kitty = {
-    enable = true;
-    settings = {
-      wayland_titlebar_color = "system";
-      hide_window_decorations = "yes";
-    };
-  };
-
   #Wallpapers
   services.hyprpaper = {
     enable = true;
@@ -61,7 +52,8 @@
     settings = {
       input = {
         kb_layout = "de";
-        natural_scroll = false;
+        natural_scroll = true;
+        touchpad.natural_scroll = true;
       };
 
       exec-once = [

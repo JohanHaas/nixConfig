@@ -8,10 +8,7 @@
 {
 
   imports = [
-    ../modules/Hyprland.nix
-    ../modules/waybar.nix
-    ../modules/ags.nix
-    ../modules/nvf.nix
+    ../modules/userImports/johan_johan_nix-tests.nix
   ];
 
   home.username = "johan";

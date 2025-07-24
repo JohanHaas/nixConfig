@@ -37,7 +37,7 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -92,7 +92,7 @@
             ./usrs
             ./hosts/nixos-Johan
             inputs.home-manager.nixosModules.default
-	    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ];
         };
       };

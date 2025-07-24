@@ -1,16 +1,27 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  inputs,
+  ...
+}:
 {
   imports = [
-        
+
   ];
 
   environment.systemPackages = with pkgs; [
     git
     neofetch
     home-manager
+    tree
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
