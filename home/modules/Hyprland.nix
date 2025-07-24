@@ -71,31 +71,30 @@
         "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
-      "$mod" = "SUPER";
+      "$mod" = "Alt_L";
       #shortcuts
-      bind =
-        [
-          #general short cuts
-          "$mod, Q, exec, ${pkgs.kitty}/bin/kitty --single-instance"
-          "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
-          "$mod SHIFT, Q, killactive,"
+      bind = [
+        #general short cuts
+        "$mod, Q, exec, ${pkgs.kitty}/bin/kitty --single-instance"
+        "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
+        "$mod SHIFT, Q, killactive,"
 
-          #fullscreen
-          "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
+        #fullscreen
+        "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
 
-        ]
-        ++ (builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              ws = i + 1;
-            in
-            [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          ) 9
-        ));
+      ]
+      ++ (builtins.concatLists (
+        builtins.genList (
+          i:
+          let
+            ws = i + 1;
+          in
+          [
+            "$mod, code:1${toString i}, workspace, ${toString ws}"
+            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        ) 9
+      ));
 
       #gui settings
 
