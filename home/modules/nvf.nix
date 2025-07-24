@@ -82,6 +82,7 @@ in
         filetree = {
           neo-tree = {
             enable = true;
+            setupOpts.window.width = 20;
           };
         };
 
@@ -128,14 +129,6 @@ in
 
         session = {
           nvim-session-manager.enable = true;
-        };
-
-        terminal.toggleterm = {
-          enable = true;
-          setupOpts = {
-            direction = "float";
-            shell = "${pkgs.zsh}/bin/zsh";
-          };
         };
       };
     };

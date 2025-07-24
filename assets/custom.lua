@@ -5,6 +5,17 @@ vim.opt.softtabstop = 4
 
 vim.o.clipboard = "unnamedplus"
 
+vim.opt.cursorline = true
+vim.cmd('highlight CursorLine guibg=#3C3E4F ctermbg=237')
+
+vim.opt.relativenumber = false
+vim.cmd('highlight CursorLineNr guifg=#F5C2E7 ctermfg=170')
+
+vim.opt.wrap = false
+
+vim.opt.whichwrap = 'b,s,<,>,[,]'
+
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "nix"
