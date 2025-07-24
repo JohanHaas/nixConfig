@@ -1,15 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
-    enableBashCompletion = true;
-    enableSyntaxHighlighting = true;
+    enableCompletions = true;
     autosuggestions.enable = true;
-    defaultShell = true;
+    syntaxHighlighting.enable = true;
 
     shellAliases = {
       ll = "ls -l";

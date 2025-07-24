@@ -4,5 +4,6 @@
     ../waybar.nix
     ../ags.nix
     ../nvf.nix
+    ../alacritty.nix
   ];
 }

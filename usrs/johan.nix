@@ -1,9 +1,19 @@
-{ config, pkgs, lib, ... }:
-{ 
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   users.users.johan = {
     isNormalUser = true;
     description = "Johan";
-    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
+
+    shell = pkgs.zsh;
   };
 }

@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-
+    ./zsh.nix
   ];
 
   environment.systemPackages = with pkgs; [

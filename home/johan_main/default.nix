@@ -8,7 +8,7 @@
 {
 
   imports = [
-    ../userImports/johan_main.nix
+    ../modules/userImports/johan_main.nix
   ];
 
   home.username = "johan";

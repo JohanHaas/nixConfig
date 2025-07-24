@@ -8,7 +8,7 @@
 {
 
   imports = [
-    ../modules/userImports/johan_johan_nix-tests.nix
+    ../modules/userImports/johan_nix-tests.nix
   ];
 
   home.username = "johan";
