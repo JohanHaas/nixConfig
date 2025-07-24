@@ -3,6 +3,7 @@
   config,
   pkgs,
   inputs,
+  self,
   ...
 }:
 {
@@ -16,6 +17,8 @@
     bibata-cursors
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
+    aichat
+    jq
   ];
 
   xdg.portal = {
@@ -74,6 +77,13 @@
         #fullscreen
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
 
+        #aichat
+        "$mod, K, exec, alacritty --title aichat -e aichat"
+
+        #minimize
+        "$mod, M, exec, ../../assets/minimize.sh"
+        "$mod SHIFT, M, exec, ../../assets/restore_minimized.sh"
+
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -89,13 +99,13 @@
       ));
 
       #gui settings
-
       decoration = {
         rounding = 10; # Rundet die Fensterecken auf 10px
       };
 
       windowrulev2 = [
         "float,title:neovim_alacritty_floating"
+        "float,title:aichat"
       ];
 
       general = {
