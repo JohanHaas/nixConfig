@@ -78,11 +78,7 @@
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
 
         #aichat
-        "$mod, K, exec, alacritty --title aichat -e aichat"
-
-        #minimize
-        "$mod, M, exec, ../../assets/minimize.sh"
-        "$mod SHIFT, M, exec, ../../assets/restore_minimized.sh"
+        "$mod, K, exec, /etc/nixConfig/assets/aichat.sh"
 
       ]
       ++ (builtins.concatLists (
@@ -106,6 +102,7 @@
       windowrulev2 = [
         "float,title:neovim_alacritty_floating"
         "float,title:aichat"
+        "workspace special:aichat silent, title^(aichat)$"
       ];
 
       general = {
