@@ -67,13 +67,13 @@
         "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
-      "$mod" = "Alt_L";
+      "$mod" = "Super";
       #shortcuts
       bind = [
         #general short cuts
         "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
         "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
-        "$mod SHIFT, Q, killactive,"
+        "$mod, C, killactive,"
 
         #fullscreen
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
@@ -103,7 +103,10 @@
       windowrulev2 = [
         "float,title:neovim_alacritty_floating"
         "float,title:aichat"
-        "workspace special:aichat, title:^(aichat)$"
+
+        "workspace special:aichat,title:^(aichat)$"
+        "size 90% 90%,title:^(aichat)$"
+        "center,1,title:^(aichat)$"
       ];
 
       general = {
