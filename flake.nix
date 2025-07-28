@@ -39,11 +39,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

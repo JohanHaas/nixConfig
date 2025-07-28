@@ -61,10 +61,11 @@
       };
 
       exec-once = [
-        "hyprpaper"
         "hyprctl setcursor Bibata-Modern-Classic 20"
+        "hyprlock"
+        "hyprpaper"
         "waybar"
-        "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
+        #"${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
       "$mod" = "Super";
@@ -74,6 +75,8 @@
         "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
         "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
         "$mod, C, killactive,"
+
+        "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
         #fullscreen
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
@@ -117,6 +120,13 @@
         gaps_out = 5; # gaps between screen and window
         gaps_in = 3; # gaps between windows
       };
+
+      misc = {
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
+
     };
   };
 }

@@ -1,11 +1,11 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
   home.packages = with pkgs; [
-    inputs.hyprlock.packages.${pkgs.system}.hyprlock
   ];
 
   programs.hyprlock = {
@@ -15,7 +15,7 @@
       general = {
         hide_cursor = true;
         ignore_empty_input = true;
-      }; 
+      };
 
       animations = {
         enable = true;
@@ -23,7 +23,7 @@
           duration = 300;
           bezier = "easeOutQuint";
         };
-        fade:out = {
+        fade_out = {
           duration = 300;
           bezier = "easeOutQuint";
         };
@@ -35,19 +35,42 @@
         }
       ];
 
-        input-field = [
-          {
-            size = "200, 50";
-            position = "0, -80";
-            monitor = "";
-            dots_center = true;
-            fade_on_empty = false;
-            font_color = "rgb(202, 211, 245)";
-            inner_color = "rgb(91, 96, 120)";
-            outer_color = "rgb(24, 25, 38)";
-            outline_thickness = 5;
-            placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
-            shadow_passes = 2;
+      input-field = [
+        {
+          size = "250, 50";
+          position = "0, -80";
+          monitor = "";
+          dots_center = true;
+          fade_on_empty = false;
+          font_color = "rgb(202, 211, 245)";
+          inner_color = "rgba(24, 25, 38, 0.5)";
+          outer_color = "rgb(cb, a6, f7)";
+          outline_thickness = 5;
+          placeholder_text = "";
+          shadow_passes = 2;
+        }
+      ];
+
+      label = [
+        {
+          monitor = "";
+          text = "$TIME";
+          color = "rgba(242, 243, 244, 1)";
+          font_size = 120;
+          font_family = "JetBrains Mono";
+          position = "0, 300";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          monitor = "";
+          text = ''cmd[update:1000] echo $(date +"%A, %d %B")'';
+          color = "rgba(242, 243, 244, 1)";
+          font_size = 25;
+          font_family = "JetBrains Mono";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
         }
       ];
     };

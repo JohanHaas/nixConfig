@@ -1,11 +1,12 @@
 #waybar {
-    background-color: rgba(40, 44, 52, 0.9);
-    border-radius: 10px;
-    border: 2px solid #525252;
+    background-color: rgba(20, 24, 30, 1);
+    border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
-    margin: 5px 10px;
-    padding: 0 5px;
+    font-size: 12px;
+    margin: 0px 5px;
+    padding: 0 3px;
+    min-height: 0;
+    border-bottom: 2px solid #555555;
 }
 
 .modules-right, .modules-left, .modules-center {
@@ -14,8 +15,8 @@
 }
 
 #waybar .module {
-    padding: 2px 8px;
-    margin: 2px 3px;
+    padding: 0px 8px;
+    margin: 0px 3px;
     border-radius: 0;
     box-shadow: none;
 }
@@ -30,12 +31,12 @@
 
 #cpu {
     color: #b4befe;
-    min-width: 60px;
+    min-width: 30px;
 }
 
 #memory {
     color: #cba6f7;
-    min-width: 130px;
+    min-width: 100px;
 }
 
 #network {
@@ -44,10 +45,6 @@
 
 #network#1 {
     min-width: 30px;
-}
-
-#network#2 {
-    min-width: 140px;
 }
 
 
@@ -68,16 +65,16 @@
 
 #battery {
     color: #a6e3a1;
-    min-width: 70px;
+    min-width: 30px;
 }
 
 #battery.charging {
     color: #b3f0b2;
-    min-width: 70px;
+    min-width: 30px;
 }
 
 #battery.warning:not(.charging) {
-    color: #f9e2af;
+    color: #f9e230;
     min-width: 70px;
 }
 

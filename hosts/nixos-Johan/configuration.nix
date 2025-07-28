@@ -13,6 +13,8 @@
 
   ];
 
+  services.getty.autologinUser = "johan";
+
   security.pam.services.hyprlock = { };
 
   networking.hostName = "nixos-Johan";
