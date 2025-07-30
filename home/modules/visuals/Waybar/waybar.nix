@@ -6,6 +6,10 @@
   self,
   ...
 }:
+let
+  dir = builtins.dirOf __curPos.file;
+  shutdownScript = "${dir}/assets/shutdown.sh";
+in
 {
   home.packages = with pkgs; [
     pavucontrol
@@ -73,7 +77,7 @@
 
         "custom/shutdown" = {
           "format" = "";
-          "on-click" = "${self.outPath}/home/modules/visuals/Waybar/assets/waybar-scripts/shutdown.sh";
+          "on-click" = "${shutdownScript}";
         };
       };
     };

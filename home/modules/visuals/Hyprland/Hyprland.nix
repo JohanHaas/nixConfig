@@ -10,6 +10,7 @@ let
   dir = builtins.dirOf __curPos.file;
   wallpaper = "${dir}/assets/nix-wallpaper.jpg";
   aichatScript = "${dir}/assets/aichat.sh";
+  powerMenu = "${dir}/assets/bootmenu.sh";
 in
 {
   home.packages = with pkgs; [
@@ -79,6 +80,9 @@ in
         "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
         "$mod, D, exec, ${pkgs.wofi}/bin/wofi --show drun"
         "$mod, C, killactive,"
+
+        #powermenu
+        ", XF86PowerOff, exec, bash ${powerMenu}"
 
         #lockscreen
         "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
