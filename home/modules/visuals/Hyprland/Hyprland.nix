@@ -15,8 +15,6 @@ in
 {
   home.packages = with pkgs; [
     libnotify
-    kitty
-    wofi
     dunst
     gtk3
     nerd-fonts.jetbrains-mono

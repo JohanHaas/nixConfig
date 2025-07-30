@@ -3,5 +3,7 @@
     ../visuals
     ../terminal
     ../programming
+    ../programs
+
   ];
 }

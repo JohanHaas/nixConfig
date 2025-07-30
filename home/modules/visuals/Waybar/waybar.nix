@@ -26,7 +26,6 @@ in
         position = "top";
         modules-left = [
           "hyprland/workspaces"
-          "hyprland/window"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -37,9 +36,10 @@ in
         ];
 
         "clock" = {
-          "format" = "{:%H:%M %a, %d. %b}";
+          "format" = "<big>{:%H:%M %a, %d. %b}</big>";
           "locale" = "de_DE.UTF-8";
-          "tooltip-format" = "<big>{:%A, %d. %B %Y}</big>\n\n<tt><b>@exec cal -3</b></tt>";
+          "on-click" = "bash -c 'cal -3 | less -R'";
+          "tooltip-format" = "<big>{:%A, %d. %B %Y}</big>\n\n<tt><b>{}</b></tt>";
         };
 
         "battery" = {
@@ -75,6 +75,22 @@ in
         "custom/shutdown" = {
           "format" = "";
           "on-click" = "${shutdownScript}";
+        };
+
+        "hyprland/workspaces" = {
+          "format" = "{icon}";
+          "on-click" = "activate";
+          "format-icons" = {
+            "default" = "●"; # ●
+            "active" = "●"; # ⬤
+            "urgent" = "";
+          };
+          "sort-by-number" = true;
+          "active-only" = false;
+
+          "persistent-workspaces" = {
+            "*" = 9;
+          };
         };
       };
     };

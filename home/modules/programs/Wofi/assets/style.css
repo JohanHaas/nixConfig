@@ -1,0 +1,26 @@
+* {
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+#window {
+    margin: 5px;
+    border: 2px solid #cba6f7;
+}
+
+#input {
+    color: #cccccc;
+    border-radius: 10px;
+    outline: 2px solid #cba6f7;
+    box-shadow: none;
+}
+
+#text {
+  margin: 5px;
+  color: #cccccc;
+}
+
+#entry:selected {
+    background-color: #666666;
+    outline: none
+}

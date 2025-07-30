@@ -9,20 +9,16 @@
     border-bottom: 2px solid #555555;
 }
 
-.modules-right, .modules-left, .modules-center {
-    margin: 0;
-    padding: 0;
+.modules-right, .modules-center, .modules-left {
+
 }
+
 
 #waybar .module {
     padding: 0px 8px;
     margin: 0px 3px;
     border-radius: 0;
     box-shadow: none;
-}
-
-#waybar .module:hover {
-    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #clock {
@@ -73,22 +69,22 @@
 
 
 #workspaces button {
-    color: #cdd6f4;
-    padding: 0 10px;
+   color: #89b4fa;
+   padding: 3px 3px;
+}
+
+#workspaces button.empty {
+    color: rgba(108, 112, 134, 0.5);
 }
 
 #workspaces button.active {
-    color: #fab387;
-    border-bottom: 2px solid #fab387;
-    padding-bottom: 0px;
+    color: #cba6f7;
+    font-size: 15px;
 }
 
-#workspaces button.has-windows {
-    color: #cba6f7;
-}
 
 #workspaces button:hover {
-    background-color: rgba(20, 24, 30, 0.2);
+    
 }
 
 

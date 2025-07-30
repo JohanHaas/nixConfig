@@ -22,17 +22,6 @@
 
     hyprcursor.url = "github:hyprwm/hyprcursor";
 
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.astal.follows = "astal";
-    };
-
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,17 +62,6 @@
           ];
         };
 
-        nix-vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs self; };
-          modules = [
-            ./hosts/common
-            ./usrs
-            ./hosts/nix-vm
-            inputs.home-manager.nixosModules.default
-          ];
-        };
-
         nixos-Johan = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs self; };
@@ -106,16 +84,6 @@
           modules = [
             ./home/common
             ./home/johan_nix-tests
-            inputs.ags.homeManagerModules.default
-          ];
-        };
-
-        "johan@nix-vm" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit inputs self; };
-          modules = [
-            ./home/common
-            ./home/johan_nix-tests
           ];
         };
 
@@ -124,7 +92,6 @@
           extraSpecialArgs = { inherit inputs self; };
           modules = [
             ./home/johan_mint
-            inputs.ags.homeManagerModules.default
           ];
         };
 
@@ -134,7 +101,6 @@
           modules = [
             ./home/common
             ./home/johan_main
-            inputs.ags.homeManagerModules.default
           ];
         };
       };
