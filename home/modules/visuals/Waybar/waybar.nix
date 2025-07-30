@@ -30,8 +30,7 @@ in
         ];
         modules-center = [ "clock" ];
         modules-right = [
-          "cpu"
-          "memory"
+          "custom/sysinfo"
           "battery"
           "network"
           "custom/shutdown"
@@ -41,16 +40,6 @@ in
           "format" = "{:%H:%M %a, %d. %b}";
           "locale" = "de_DE.UTF-8";
           "tooltip-format" = "<big>{:%A, %d. %B %Y}</big>\n\n<tt><b>@exec cal -3</b></tt>";
-        };
-
-        "cpu" = {
-          "format" = "{usage}% ";
-          "interval" = 1;
-        };
-
-        "memory" = {
-          "format" = "{used}/{total} GiB";
-          "interval" = 1;
         };
 
         "battery" = {
@@ -66,6 +55,14 @@ in
             "warning" = 30;
             "critical" = 15;
           };
+        };
+
+        "custom/sysinfo" = {
+          "interval" = 1;
+          "format" = "{}";
+          "exec" = "bash ${dir}/assets/sysinfo.sh";
+          "return-type" = "plain";
+          "tooltip" = false;
         };
 
         "network" = {
