@@ -4,6 +4,10 @@
   inputs,
   ...
 }:
+let
+  dir = builtins.dirOf __curPos.file;
+  wallpaper = "${dir}/assets/nix-wallpaper.jpg";
+in
 {
   home.packages = with pkgs; [
   ];
@@ -31,7 +35,7 @@
 
       background = [
         {
-          path = "/etc/nixConfig/assets/nix-wallpaper.jpg";
+          path = "${wallpaper}";
         }
       ];
 

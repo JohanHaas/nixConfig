@@ -14,7 +14,7 @@
 
   programs.waybar = {
     enable = true;
-    style = builtins.readFile ../../assets/waybar-scripts/waybar-style.css;
+    style = builtins.readFile ./assets/waybar-style.css;
     package = inputs.waybar.packages.${pkgs.system}.waybar;
     settings = {
       mainBar = {
@@ -45,7 +45,7 @@
         };
 
         "memory" = {
-          "format" = "{used}/{total} Gib";
+          "format" = "{used}/{total} GiB";
           "interval" = 1;
         };
 
@@ -73,7 +73,7 @@
 
         "custom/shutdown" = {
           "format" = "";
-          "on-click" = "${self.outPath}/assets/waybar-scripts/shutdown.sh";
+          "on-click" = "${self.outPath}/home/modules/visuals/Waybar/assets/waybar-scripts/shutdown.sh";
         };
       };
     };

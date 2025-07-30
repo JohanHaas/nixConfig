@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-chosen = $(echo -e "Shutdown\nReboot\nSuspend\nLock" | rofi -dmenu -p "Power Menu:"))
+
+hyprctl dispatch workplace special:powermenu
+chosen=$(echo -e "Shutdown\nReboot\nSuspend\nLock" | wofi --dmenu -p "Power Menu:")
 
 case "$chosen" in
   Shutdown) systemctl poweroff ;;

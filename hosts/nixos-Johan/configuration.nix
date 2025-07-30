@@ -13,6 +13,10 @@
 
   ];
 
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+  '';
+
   services.getty.autologinUser = "johan";
 
   security.pam.services.hyprlock = { };

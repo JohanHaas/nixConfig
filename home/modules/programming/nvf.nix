@@ -7,7 +7,8 @@
   ...
 }:
 let
-  luaContent = builtins.readFile "${self.outPath}/assets/custom.lua";
+  dir = builtins.dirOf __curPos.file;
+  luaContent = builtins.readFile "${dir}/assets/custom.lua";
 in
 {
   imports = [

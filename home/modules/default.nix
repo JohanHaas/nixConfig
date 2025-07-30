@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./programming
+    ./terminal
+    ./visuals
+  ];
+}

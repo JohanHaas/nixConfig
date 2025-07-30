@@ -6,6 +6,11 @@
   self,
   ...
 }:
+let
+  dir = builtins.dirOf __curPos.file;
+  wallpaper = "${dir}/assets/nix-wallpaper.jpg";
+  aichatScript = "${dir}/assets/aichat.sh";
+in
 {
   home.packages = with pkgs; [
     libnotify
@@ -26,7 +31,7 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
-  };
+  };,
 
   #Wallpapers
   services.hyprpaper = {
@@ -35,9 +40,9 @@
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "/etc/nixConfig/assets/nix-wallpaper.jpg" ];
+      preload = [ "${wallpaper}" ];
       wallpaper = [
-        "eDP-1,/etc/nixConfig/assets/nix-wallpaper.jpg"
+        "eDP-1,${wallpaper}"
       ];
     };
   };
@@ -61,11 +66,10 @@
       };
 
       exec-once = [
-        "hyprctl setcursor Bibata-Modern-Classic 20"
-        "hyprlock"
         "hyprpaper"
+        "hyprctl setcursor Bibata-Modern-Classic 20"
         "waybar"
-        #"${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
+        "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
       "$mod" = "Super";
@@ -76,13 +80,11 @@
         "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
         "$mod, C, killactive,"
 
-        "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
-
         #fullscreen
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
 
         #aichat
-        "$mod, K, exec, /etc/nixConfig/assets/aichat.sh"
+        "$mod, K, exec, ${aichatScript}"
 
       ]
       ++ (builtins.concatLists (
@@ -120,13 +122,6 @@
         gaps_out = 5; # gaps between screen and window
         gaps_in = 3; # gaps between windows
       };
-
-      misc = {
-        force_default_wallpaper = 0;
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-      };
-
     };
   };
 }

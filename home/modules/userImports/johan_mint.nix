@@ -1,7 +1,7 @@
 {
   imports = [
     ../ags.nix
-    ../nvf.nix
-    ../zsh.nix
+    ../programming
+    ../terminal
   ];
 }
