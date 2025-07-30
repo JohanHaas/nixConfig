@@ -15,7 +15,7 @@ in
   home.packages = with pkgs; [
     libnotify
     kitty
-    rofi-wayland
+    wofi
     dunst
     gtk3
     nerd-fonts.jetbrains-mono
@@ -31,7 +31,7 @@ in
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
-  };,
+  };
 
   #Wallpapers
   services.hyprpaper = {
@@ -66,10 +66,10 @@ in
       };
 
       exec-once = [
-        "hyprpaper"
         "hyprctl setcursor Bibata-Modern-Classic 20"
+        "hyprlock"
+        "hyprpaper"
         "waybar"
-        "${pkgs.rofi-wayland}/bin/rofi -show drun & closeunfocused"
       ];
 
       "$mod" = "Super";
@@ -77,8 +77,11 @@ in
       bind = [
         #general short cuts
         "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
-        "$mod, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun"
+        "$mod, D, exec, ${pkgs.wofi}/bin/wofi --show drun"
         "$mod, C, killactive,"
+
+        #lockscreen
+        "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
         #fullscreen
         "$mod, F, exec, hyprctl dispatch fullscreen active toggle"
@@ -113,6 +116,10 @@ in
         "size 90% 90%,title:^(aichat)$"
         "center,1,title:^(aichat)$"
       ];
+
+      misc = {
+        disable_hyprland_logo = true;
+      };
 
       general = {
         border_size = 3;

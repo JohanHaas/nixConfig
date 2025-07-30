@@ -3,5 +3,5 @@
     ./Hyprland
     ./Hyprlock
     ./Waybar
-  ]
+  ];
 }
