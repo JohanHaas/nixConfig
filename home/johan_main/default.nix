@@ -17,8 +17,7 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    nodejs_24
-    typescript
+    anki
   ];
 
   home.file = {

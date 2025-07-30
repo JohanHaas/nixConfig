@@ -91,6 +91,18 @@ in
         #aichat
         "$mod, K, exec, ${aichatScript}"
 
+        #window resizing
+
+        "$mod SHIFT, left, resizeactive, -20 0"
+        "$mod SHIFT, right, resizeactive, 20 0"
+        "$mod SHIFT, up, resizeactive, 0 -20"
+        "$mod SHIFT, down, resizeactive, 0 20"
+
+        "$mod, up, swapwindow, u"
+        "$mod, down, swapwindow, d"
+        "$mod, right, swapwindow, r"
+        "$mod, left, swapwindow, l"
+
       ]
       ++ (builtins.concatLists (
         builtins.genList (
