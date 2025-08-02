@@ -2,5 +2,6 @@
   imports = [
     ./neovim
     ./Fuzzel
+    ./nnn
   ];
 }

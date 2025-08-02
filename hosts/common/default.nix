@@ -16,6 +16,7 @@
     neofetch
     home-manager
     tree
+    fzf
   ];
 
   nix.settings.experimental-features = [

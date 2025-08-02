@@ -6,9 +6,11 @@
 {
   programs.fuzzel = {
     enable = true;
+
     settings = {
+
       main = {
-        terminal = "${pkgs.alacritty}/bin/alacritts";
+        terminal = "${pkgs.alacritty}/bin/alacritty -e";
         layer = "overlay";
         font = "Hack Nerd Font";
         lines = 10;
@@ -17,6 +19,7 @@
         icons-enabled = true;
         icon-theme = "Papirus";
       };
+
       colors = {
         background = "1e1e2eE0";
         text = "cdd6f4FF";

@@ -136,7 +136,7 @@ in
         };
 
         session = {
-          nvim-session-manager.enable = true;
+          nvim-session-manager.enable = false;
         };
       };
     };

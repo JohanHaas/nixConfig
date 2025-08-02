@@ -15,6 +15,12 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
 
+    plugins = [
+      {
+        name = "fzf";
+        src = pkgs.fzf.src;
+      }
+    ];
     initContent = lib.mkOrder 1000 ''
       PROMPT="%F{red}%~%f %F{magenta}>%f "
       PS2="> "
