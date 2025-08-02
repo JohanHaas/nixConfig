@@ -1,5 +1,6 @@
 {
   imports = [
-    ./Wofi
+    ./neovim
+    ./Fuzzel
   ];
 }

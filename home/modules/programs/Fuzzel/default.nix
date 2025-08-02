@@ -1,5 +1,5 @@
 {
   imports = [
-    ./wofi.nix
+    ./fuzzel.nix
   ];
 }

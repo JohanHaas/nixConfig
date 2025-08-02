@@ -21,6 +21,9 @@ in
     bibata-cursors
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
+    gnome.gvfs
+    dbus
+    aichat
   ];
 
   xdg.portal = {
@@ -72,7 +75,7 @@ in
       bind = [
         #general short cuts
         "$mod, Q, exec, ${pkgs.alacritty}/bin/alacritty"
-        "$mod, D, exec, ${pkgs.wofi}/bin/wofi --show drun"
+        "$mod, D, exec, ${pkgs.fuzzel}/bin/fuzzel"
         "$mod, C, killactive,"
 
         #powermenu
