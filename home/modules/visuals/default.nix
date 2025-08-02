@@ -3,5 +3,6 @@
     ./Hyprland
     ./Hyprlock
     ./Waybar
+    ./Gtk
   ];
 }

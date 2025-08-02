@@ -65,6 +65,12 @@ in
           nix.enable = true;
           lua.enable = true;
           python.enable = true;
+          clang.enable = true;
+          rust = {
+            enable = true;
+            crates.enable = true;
+          };
+
         };
 
         visuals = {

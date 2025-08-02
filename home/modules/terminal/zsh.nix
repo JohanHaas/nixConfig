@@ -5,6 +5,10 @@
   ...
 }:
 {
+  home.shellAliases = {
+    fetchShell = "nix flake init --template github:JohanHaas/DevShells";
+  };
+
   programs.zsh = {
     enable = true;
 
