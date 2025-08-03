@@ -1,6 +1,6 @@
 {
   imports = [
-    ./programming
+    ./programs
     ./terminal
     ./visuals
   ];

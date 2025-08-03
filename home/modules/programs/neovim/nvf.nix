@@ -105,7 +105,9 @@ in
 
         autopairs.nvim-autopairs.enable = true;
 
-        telescope.enable = true;
+        telescope.enable = false;
+
+        fzf-lua.enable = true;
 
         git = {
           enable = true;

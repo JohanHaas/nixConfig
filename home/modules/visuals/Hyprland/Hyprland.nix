@@ -21,7 +21,6 @@ in
     bibata-cursors
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
-    gnome.gvfs
     dbus
     aichat
   ];

@@ -3,6 +3,6 @@
     ./Hyprland
     ./Hyprlock
     ./Waybar
-    ./Gtk
+    ./stylix
   ];
 }
