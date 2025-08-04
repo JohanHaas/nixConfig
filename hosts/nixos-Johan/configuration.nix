@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    #../modules/stylix
+
   ];
 
   environment.systemPackages = with pkgs; [
@@ -32,6 +32,7 @@
 
   programs.thunar.enable = true;
   programs.xfconf.enable = true;
+  services.gvfs.enable = true;
 
   system.stateVersion = "25.11";
 }

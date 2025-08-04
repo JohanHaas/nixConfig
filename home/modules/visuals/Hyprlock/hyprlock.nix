@@ -2,12 +2,9 @@
   config,
   pkgs,
   inputs,
+  wallpaper,
   ...
 }:
-let
-  dir = builtins.dirOf __curPos.file;
-  wallpaper = "${dir}/assets/nix-wallpaper.jpg";
-in
 {
   home.packages = with pkgs; [
   ];
@@ -35,7 +32,7 @@ in
 
       background = [
         {
-          path = "${wallpaper}";
+          path = "${wallpaper}/Temple-waterfall.jpg";
         }
       ];
 

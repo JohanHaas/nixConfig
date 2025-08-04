@@ -33,6 +33,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wallpapers = {
+      url = "git+ssh://git@github.com/JohanHaas/wallpapers.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -85,7 +90,10 @@
       homeConfigurations = {
         "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs self; };
+          extraSpecialArgs = {
+            inherit inputs self;
+            wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}";
+          };
           modules = [
             ./home/common
             ./home/johan_nix-tests
@@ -102,7 +110,10 @@
 
         "johan@nixos-Johan" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs self; };
+          extraSpecialArgs = {
+            inherit inputs self;
+            wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}";
+          };
           modules = [
             ./home/common
             ./home/johan_main

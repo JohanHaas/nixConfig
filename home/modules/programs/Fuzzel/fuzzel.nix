@@ -13,7 +13,7 @@
         terminal = "${pkgs.alacritty}/bin/alacritty -e";
         layer = "overlay";
         font = "Hack Nerd Font";
-        lines = 10;
+        lines = 20;
         width = 50;
         height = "auto";
         icons-enabled = true;

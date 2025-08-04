@@ -990,6 +990,7 @@
         "nixpkgs": "nixpkgs_4",
         "nvf": "nvf",
         "stylix": "stylix",
+        "wallpapers": "wallpapers",
         "waybar": "waybar"
       }
     },
@@ -1181,6 +1182,27 @@
         "owner": "tinted-theming",
         "repo": "base16-zed",
         "type": "github"
+      }
+    },
+    "wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1754297770,
+        "narHash": "sha256-bCTnQ11h0T1sWfTT+k11ZylBNYJFQtUxVFyz095NdAo=",
+        "ref": "main",
+        "rev": "7e595ceaf27f3bebeb52b26275879d1a6c61cfbe",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
       }
     },
     "waybar": {

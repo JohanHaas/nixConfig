@@ -4,11 +4,11 @@
   pkgs,
   inputs,
   self,
+  wallpaper,
   ...
 }:
 let
   dir = builtins.dirOf __curPos.file;
-  wallpaper = "${dir}/assets/nix-wallpaper.jpg";
   aichatScript = "${dir}/assets/aichat.sh";
   powerMenu = "${dir}/assets/bootmenu.sh";
 in
@@ -40,7 +40,7 @@ in
       splash = false;
       preload = [ "${wallpaper}" ];
       wallpaper = [
-        "eDP-1,${wallpaper}"
+        "eDP-1,${wallpaper}/Temple-waterfall.jpg"
       ];
     };
   };
@@ -134,7 +134,7 @@ in
       };
 
       general = {
-        border_size = 3;
+        border_size = 0;
 
         "col.active_border" = "rgba(cba6f7FF)";
         "col.inactive_border" = "rgba(444444aa)";
