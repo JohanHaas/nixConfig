@@ -38,9 +38,9 @@ in
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "${wallpaper}" ];
+      preload = [ "${wallpaper}/Strommasten.png" ];
       wallpaper = [
-        "eDP-1,${wallpaper}/Temple-waterfall.jpg"
+        "eDP-1,${wallpaper}/Strommasten.png"
       ];
     };
   };

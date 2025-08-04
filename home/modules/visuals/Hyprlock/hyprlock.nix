@@ -32,7 +32,7 @@
 
       background = [
         {
-          path = "${wallpaper}/Temple-waterfall.jpg";
+          path = "${wallpaper}/Strommasten.png";
         }
       ];
 
