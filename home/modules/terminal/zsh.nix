@@ -6,8 +6,10 @@
 }:
 {
   home.shellAliases = {
-    fetchShell = "nix flake init --template github:JohanHaas/DevShells";
+
   };
+
+  home.file.".config/shell_functions.sh".text = builtins.readFile ./shellFunctions.sh;
 
   programs.zsh = {
     enable = true;
@@ -30,6 +32,10 @@
       if [[ -z "$WAYLAND_DISPLAY" && "$XDG_VTNR" -eq 1 ]]; then
         exec dbus-run-session Hyprland
       fi
+    '';
+
+    initExtra = ''
+      source "$HOME/.config/shell_functions.sh"
     '';
 
   };
