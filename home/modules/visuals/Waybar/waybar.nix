@@ -37,8 +37,6 @@ in
         "clock" = {
           "format" = "<big>{:%H:%M %a, %d. %b}</big>";
           "locale" = "de_DE.UTF-8";
-          "on-click" = "bash -c 'cal -3 | less -R'";
-          "tooltip-format" = "<big>{:%A, %d. %B %Y}</big>\n\n<tt><b>{}</b></tt>";
         };
 
         "battery" = {

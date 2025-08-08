@@ -19,6 +19,8 @@ else
     mem=0
 fi
 
-echo "${cpu}% C / ${mem}% M"
+storage=$(df -h / | tail -n 1 | awk '{print $5}')
+
+echo "${cpu}% C / ${mem}% M / ${storage} S"
 
 unset LANG

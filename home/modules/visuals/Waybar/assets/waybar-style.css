@@ -3,7 +3,7 @@
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
     font-size: 12px;
-    margin: 0px 5px;
+    margin: 0 5px 0 10px;
     padding: 0 3px;
     min-height: 0;
     border-bottom: 2px solid #555555;
@@ -32,20 +32,20 @@
 
 #network {
     color: #94e2d5;
-    min-width: 20px
+    min-width: 15px
 }
 
 #custom-shutdown {
     color: #f38ba8;
-    min-width: 20px;
+    min-width: 10px;
     font-size: 16px;
+    padding: 0 5px;
+    margin: 0 5px 0 0;
 }
 
-#window {
-    color: #89b4fa;
-    font-style: italic;
-    font-weight: bold;
-    min-width: 50px;
+#custom-shutdown:hover {
+    background-color: #777777;
+    border-radius: 10px;
 }
 
 /* Batterie */
@@ -70,7 +70,7 @@
 
 #workspaces button {
    color: #89b4fa;
-   padding: 3px 3px;
+   padding: 1px 3px;
 }
 
 #workspaces button.empty {
@@ -85,17 +85,4 @@
 
 #workspaces button:hover {
     
-}
-
-
-
-tooltip {
-    background-color: rgba(40, 44, 52, 0.95);
-    border: 2px solid #525252;
-    border-radius: 10px;
-    padding: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    color: #cdd6f4;
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
 }

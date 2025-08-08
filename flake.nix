@@ -20,8 +20,6 @@
 
     waybar.url = "github:Alexays/Waybar";
 
-    hyprcursor.url = "github:hyprwm/hyprcursor";
-
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,7 +51,14 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+
+        ];
       };
+
+      #globally set wallpaper
+      wallpaperName = "Strommasten.png";
+      wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${wallpaperName}";
 
     in
     {
@@ -74,7 +79,14 @@
 
         nixos-Johan = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs self; };
+          specialArgs = {
+            inherit
+              inputs
+              self
+              wallpaper
+              wallpaperName
+              ;
+          };
           modules = [
             ./hosts/common
             ./usrs
@@ -91,8 +103,7 @@
         "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit inputs self;
-            wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}";
+            inherit inputs self wallpaper;
           };
           modules = [
             ./home/common
@@ -111,8 +122,7 @@
         "johan@nixos-Johan" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit inputs self;
-            wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}";
+            inherit inputs self wallpaper;
           };
           modules = [
             ./home/common

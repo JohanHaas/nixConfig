@@ -1,0 +1,7 @@
+[SddmGreeterTheme]
+Name=SddmTheme
+Comment=ein minimales sddm theme, was meine hyprlock konfiguration mimicked
+Type=sddm-theme
+MainScript=Main.qml
+Theme-API=2.0
+QtVersion=6

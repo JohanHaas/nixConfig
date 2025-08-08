@@ -18,12 +18,13 @@ vim.opt.whichwrap = 'b,s,<,>,[,]'
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {
-        "nix"
+        "nix",
+        "qml"
     },
     callback = function()
         local filetype = vim.bo.filetype
 
-        if filetype == "nix" then
+        if filetype == "nix" or filetype == "qml" then
             vim.opt.tabstop = 2
             vim.opt.shiftwidth = 2
             vim.opt.expandtab = true

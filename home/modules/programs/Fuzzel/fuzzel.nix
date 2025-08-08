@@ -15,7 +15,6 @@
         font = "Hack Nerd Font";
         lines = 20;
         width = 50;
-        height = "auto";
         icons-enabled = true;
         icon-theme = "Papirus";
       };

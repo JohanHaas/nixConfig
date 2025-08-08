@@ -18,11 +18,11 @@ in
     dunst
     gtk3
     nerd-fonts.jetbrains-mono
-    bibata-cursors
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
     dbus
     aichat
+    hyprshot
+
   ];
 
   xdg.portal = {
@@ -38,9 +38,9 @@ in
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "${wallpaper}/Strommasten.png" ];
+      preload = [ "${wallpaper}" ];
       wallpaper = [
-        "eDP-1,${wallpaper}/Strommasten.png"
+        "eDP-1,${wallpaper}"
       ];
     };
   };
@@ -63,8 +63,6 @@ in
       };
 
       exec-once = [
-        "hyprctl setcursor Bibata-Modern-Classic 20"
-        "hyprlock"
         "hyprpaper"
         "waybar"
       ];
@@ -101,6 +99,10 @@ in
         "$mod, right, swapwindow, r"
         "$mod, left, swapwindow, l"
 
+        #screenshot
+        "$mod, p, exec, hyprshot -m region -o ~/Bilder/Screenshots"
+        "$mod SHIFT, p, exec, hyprshot -m region --clipboard-only"
+
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -115,6 +117,10 @@ in
         ) 9
       ));
 
+      layerrule = [
+        "noanim,class:^(waybar)$"
+      ];
+
       #gui settings
       decoration = {
         rounding = 10; # Rundet die Fensterecken auf 10px
@@ -127,6 +133,10 @@ in
         "workspace special:aichat,title:^(aichat)$"
         "size 90% 90%,title:^(aichat)$"
         "center,1,title:^(aichat)$"
+      ];
+
+      monitor = [
+
       ];
 
       misc = {
