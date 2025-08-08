@@ -89,11 +89,13 @@ in
           "format-wifi" = "";
           "format-disconnected" = "<span color='red'> </span>";
           "interval" = 1;
+          "tooltip" = false;
         };
 
         "custom/shutdown" = {
           "format" = "";
           "on-click" = "${shutdownScript}";
+          "tooltip" = false;
         };
 
         "hyprland/workspaces" = {
