@@ -10,7 +10,8 @@
 let
   dir = builtins.dirOf __curPos.file;
   aichatScript = "${dir}/assets/aichat.sh";
-  powerMenu = "${dir}/assets/bootmenu.sh";
+  powerMenu = "${dir}/assets/shutdown.sh";
+  wallpaperScript = "${dir}/assets/wallpaper.sh";
 in
 {
   home.packages = with pkgs; [
@@ -22,6 +23,7 @@ in
     dbus
     aichat
     hyprshot
+    jq
 
   ];
 
@@ -102,6 +104,9 @@ in
         #screenshot
         "$mod, p, exec, hyprshot -m region -o ~/Bilder/Screenshots"
         "$mod SHIFT, p, exec, hyprshot -m region --clipboard-only"
+
+        #wallpaper
+        "$mod, w, exec, ${wallpaperScript}"
 
       ]
       ++ (builtins.concatLists (

@@ -19,7 +19,7 @@
   home.packages = with pkgs; [
     anki
     eog
-
+    protonvpn-gui
   ];
 
   home.file = {

@@ -57,7 +57,7 @@
       };
 
       #globally set wallpaper
-      wallpaperName = "Strommasten.png";
+      wallpaperName = builtins.readFile ./assets/wallpaper_name.txt;
       wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${wallpaperName}";
 
     in
