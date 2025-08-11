@@ -70,7 +70,7 @@ in
             enable = true;
             crates.enable = true;
           };
-
+          java.enable = true;
         };
 
         visuals = {

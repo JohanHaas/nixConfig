@@ -18,18 +18,6 @@
         ignore_empty_input = true;
       };
 
-      animations = {
-        enable = true;
-        fade_in = {
-          duration = 300;
-          bezier = "easeOutQuint";
-        };
-        fade_out = {
-          duration = 300;
-          bezier = "easeOutQuint";
-        };
-      };
-
       background = [
         {
           path = "${wallpaper}";
@@ -45,7 +33,6 @@
           fade_on_empty = false;
           font_color = "rgb(202, 211, 245)";
           inner_color = "rgba(24, 25, 38, 0.5)";
-          outer_color = "rgb(cb, a6, f7)";
           outline_thickness = 5;
           placeholder_text = "";
           shadow_passes = 2;

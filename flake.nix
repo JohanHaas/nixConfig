@@ -36,6 +36,7 @@
       url = "git+ssh://git@github.com/JohanHaas/wallpapers.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =
@@ -60,6 +61,9 @@
       wallpaperName = builtins.readFile ./assets/wallpaper_name.txt;
       wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${wallpaperName}";
 
+      sddmWallpaperName = "cityAtNight.jpeg";
+      sddmWallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${sddmWallpaperName}";
+
     in
     {
 
@@ -83,8 +87,8 @@
             inherit
               inputs
               self
-              wallpaper
-              wallpaperName
+              sddmWallpaper
+              sddmWallpaperName
               ;
           };
           modules = [
@@ -122,7 +126,12 @@
         "johan@nixos-Johan" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit inputs self wallpaper;
+            inherit
+              inputs
+              self
+              wallpaper
+              wallpaperName
+              ;
           };
           modules = [
             ./home/common

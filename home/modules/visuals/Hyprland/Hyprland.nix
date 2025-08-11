@@ -65,7 +65,6 @@ in
       };
 
       exec-once = [
-        "hyprpaper"
         "waybar"
       ];
 

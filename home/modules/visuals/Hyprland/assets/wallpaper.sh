@@ -11,6 +11,5 @@ if [[ -n "$chosen" && "$chosen" != "$current_wallpaper" ]]; then
     echo "$chosen" > "$path/assets/wallpaper_name.txt"
     home-manager switch --flake "$path#$USER@$HOSTNAME"
     pkill hyprpaper
-    sleep 0.5
-    hyprpaper &
+    hyprpaper
 fi

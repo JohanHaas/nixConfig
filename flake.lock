@@ -1086,11 +1086,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754303080,
-        "narHash": "sha256-5SFivFZf9a7TVFgQ8C2SZPQB2kQG2QBSNmmYtx3s3rs=",
+        "lastModified": 1754827791,
+        "narHash": "sha256-WCFEXmnc6SqKND4yHIy8NJgEZL1IaACx43VUP0wUkyY=",
         "ref": "main",
-        "rev": "deaa1d02566c522f6501cd83955b519a42568ea3",
-        "revCount": 3,
+        "rev": "5cc9a3f44452085bc2b63b110fcd29d768bc6162",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
       },

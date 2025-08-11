@@ -1,8 +1,8 @@
 {
   config,
   pkgs,
-  wallpaper,
-  wallpaperName,
+  sddmWallpaper,
+  sddmWallpaperName,
   ...
 }:
 let
@@ -16,13 +16,13 @@ let
             mkdir -p $out/share/sddm/themes/SddmTheme/images
             cp ${mainQML} $out/share/sddm/themes/SddmTheme/Main.qml
             cp ${metadata} $out/share/sddm/themes/SddmTheme/metadata.desktop
-            cp ${wallpaper} $out/share/sddm/themes/SddmTheme/images/${wallpaperName}
+            cp ${sddmWallpaper} $out/share/sddm/themes/SddmTheme/images/${sddmWallpaperName}
             cat > $out/share/sddm/themes/SddmTheme/theme.conf <<EOF
       [General]
       Name=SddmTheme
       Description=Ein minimalistisches SDDM-Theme im Hyprlock-Stil
       Version=1.0
-      background=images/${wallpaperName}
+      background=images/${sddmWallpaperName}
       EOF
     '';
   };

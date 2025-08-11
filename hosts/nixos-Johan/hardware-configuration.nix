@@ -53,7 +53,7 @@
   boot.resumeDevice = "/dev/disk/by-uuid/f7873ba5-5599-4cd6-9e9b-9ac34ab2e4fb";
   boot.kernelParams = [
     "resume_offset=106801152"
-    "mem_sleep_default=deep"
+    "mem_sleep_default=s2idle"
   ];
   powerManagement.enable = true;
 
@@ -61,7 +61,7 @@
   services.logind.lidSwitch = "suspend-then-hibernate";
 
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30m
+    HibernateDelaySec=10m
     SuspendState=mem
   '';
 
