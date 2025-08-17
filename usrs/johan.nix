@@ -12,6 +12,7 @@
       "networkmanager"
       "wheel"
       "libvirtd"
+      "fprint"
     ];
     packages = with pkgs; [ ];
 

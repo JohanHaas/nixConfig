@@ -1,9 +1,16 @@
-
 fetchShell() {
-    if [ -z "$1" ]; then
-      echo "Usage: fetchShell <templateName>"
-      return 1
-    fi
-    nix flake init --template "github:JohanHaas/DevShells#$1"
-}
+  local hash
+  hash=$(curl -s https://api.github.com/repos/JohanHaas/DevShells/commits/main | jq -r '.sha')
 
+  if [[ -z $1 ]]; then
+    echo "Kein Template angegeben. Verfügbare Templates:"
+    nix flake show "github:JohanHaas/DevShells?ref=$hash"
+    return 1
+  fi
+
+  if ! nix flake init --template "github:JohanHaas/DevShells?ref=$hash#$1"; then
+    echo "Template '$1' existiert nicht. Verfügbare Templates:"
+    nix flake show "github:JohanHaas/DevShells?ref=$hash"
+    return 1
+  fi
+}

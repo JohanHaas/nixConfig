@@ -47,6 +47,8 @@
     HandlePowerKey=ignore
   '';
 
+  services.fprintd.enable = false;
+
   security.pam.services.hyprlock = { };
 
   networking.hostName = "nixos-Johan";

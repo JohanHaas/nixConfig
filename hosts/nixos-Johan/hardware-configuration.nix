@@ -57,13 +57,30 @@
   ];
   powerManagement.enable = true;
 
-  services.power-profiles-daemon.enable = true;
   services.logind.lidSwitch = "suspend-then-hibernate";
 
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=10m
     SuspendState=mem
   '';
+
+  services.power-profiles-daemon.enable = false;
+  services.tlp.enable = false;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "ondemand";
+        turbo = "auto";
+      };
+    };
+  };
+
+  hardware.enableRedistributableFirmware = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
