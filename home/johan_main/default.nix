@@ -3,10 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
-
+}: {
   imports = [
     ../modules/userImports/johan_main.nix
   ];
@@ -20,14 +17,17 @@
     anki
     eog
     protonvpn-gui
+    discord
+    spotify
+    gimp
+    ardour
+    neural-amp-modeler-lv2
   ];
 
   home.file = {
-
   };
 
   home.sessionVariables = {
-
   };
 
   programs.ssh = {

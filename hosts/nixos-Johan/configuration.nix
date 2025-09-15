@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ../modules
   ];
@@ -13,12 +12,40 @@
     spice
     spice-gtk
     virtiofsd
+    pulseaudio
+    guitarix
+    jack2
+    qjackctl
   ];
+
+  services.pipewire.jack.enable = true;
+  security.pam.loginLimits = [
+    {
+      domain = "@audio";
+      type = "-";
+      item = "rtprio";
+      value = "95";
+    }
+    {
+      domain = "@audio";
+      type = "-";
+      item = "memlock";
+      value = "unlimited";
+    }
+    {
+      domain = "@audio";
+      type = "-";
+      item = "nice";
+      value = "-19";
+    }
+  ];
+
+  services.upower.enable = true;
 
   #virtualmachines
   programs.virt-manager.enable = true;
 
-  users.groups.libvirtd.members = [ "johan" ];
+  users.groups.libvirtd.members = ["johan"];
 
   virtualisation.libvirtd = {
     enable = true;
@@ -40,7 +67,7 @@
 
   virtualisation.spiceUSBRedirection.enable = true;
 
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
+  networking.firewall.trustedInterfaces = ["virbr0"];
 
   #powermenu
   services.logind.extraConfig = ''
@@ -49,7 +76,7 @@
 
   services.fprintd.enable = false;
 
-  security.pam.services.hyprlock = { };
+  security.pam.services.hyprlock = {};
 
   networking.hostName = "nixos-Johan";
 

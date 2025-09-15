@@ -20,6 +20,11 @@
 
     waybar.url = "github:Alexays/Waybar";
 
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,7 +66,7 @@
       wallpaperName = builtins.readFile ./assets/wallpaper_name.txt;
       wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${wallpaperName}";
 
-      sddmWallpaperName = "cityAtNight.jpeg";
+      sddmWallpaperName = "my-neighbour-totoro-sunflowers.png";
       sddmWallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${sddmWallpaperName}";
 
     in

@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   users.users.johan = {
     isNormalUser = true;
     description = "Johan";
@@ -13,8 +12,9 @@
       "wheel"
       "libvirtd"
       "fprint"
+      "audio"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
 
     shell = pkgs.zsh;
   };

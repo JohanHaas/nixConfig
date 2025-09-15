@@ -5,12 +5,10 @@
   self,
   lib,
   ...
-}:
-let
+}: let
   dir = builtins.dirOf __curPos.file;
   luaContent = builtins.readFile "${dir}/assets/custom.lua";
-in
-{
+in {
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
@@ -61,7 +59,10 @@ in
         };
 
         languages = {
+          enableFormat = true;
           enableTreesitter = true;
+          enableExtraDiagnostics = true;
+
           nix.enable = true;
           lua.enable = true;
           python.enable = true;
@@ -71,6 +72,9 @@ in
             crates.enable = true;
           };
           java.enable = true;
+          vala.enable = true;
+          ts.enable = true;
+          markdown.enable = true;
         };
 
         visuals = {

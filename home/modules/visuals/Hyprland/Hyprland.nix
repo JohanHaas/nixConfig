@@ -65,7 +65,6 @@ in
       };
 
       exec-once = [
-        "waybar"
       ];
 
       "$mod" = "Super";
@@ -141,6 +140,18 @@ in
 
       monitor = [
 
+      ];
+
+      workspace = [
+        "1, monitor:eDP-1, persistent:true, default:true"
+        "2, monitor:eDP-1, persistent:true"
+        "3, monitor:eDP-1, persistent:true"
+        "4, monitor:eDP-1, persistent:true"
+        "5, monitor:eDP-1, persistent:true"
+        "6, monitor:eDP-1, persistent:true"
+        "7, monitor:eDP-1, persistent:true"
+        "8, monitor:eDP-1, persistent:true"
+        "9, monitor:eDP-1, persistent:true"
       ];
 
       misc = {
