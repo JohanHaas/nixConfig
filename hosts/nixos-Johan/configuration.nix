@@ -40,6 +40,10 @@
     }
   ];
 
+  services.printing.enable = true;
+
+  services.avahi.enable = true;
+
   services.upower.enable = true;
 
   #virtualmachines

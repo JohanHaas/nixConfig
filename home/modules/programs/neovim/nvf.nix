@@ -72,9 +72,8 @@ in {
             crates.enable = true;
           };
           java.enable = true;
-          vala.enable = true;
           ts.enable = true;
-          markdown.enable = true;
+          haskell.enable = true;
         };
 
         visuals = {

@@ -3,10 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
-
+}: {
   imports = [
     ../modules/userImports/johan_nix-tests.nix
   ];
@@ -17,16 +14,13 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    nodejs_24
-    typescript
+    inputs.niri.packages."${pkgs.system}".niri
   ];
 
   home.file = {
-
   };
 
   home.sessionVariables = {
-
   };
 
   # Let Home Manager install and manage itself.

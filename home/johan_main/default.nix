@@ -20,8 +20,7 @@
     discord
     spotify
     gimp
-    ardour
-    neural-amp-modeler-lv2
+    wasistlos
   ];
 
   home.file = {
