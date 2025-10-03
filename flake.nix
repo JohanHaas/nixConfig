@@ -9,21 +9,16 @@
 
     niri.url = "github:YaLTeR/niri";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland.url = "github:hyprwm/Hyprland";
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #hyprland-plugins = {
+    #  url = "github:hyprwm/hyprland-plugins";
+    #  inputs.hyprland.follows = "hyprland";
+    #};
 
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    #hyprpaper.url = "github:hyprwm/hyprpaper";
 
     waybar.url = "github:Alexays/Waybar";
-
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nvf = {
       url = "github:NotAShelf/nvf";
@@ -65,6 +60,8 @@
     sddmWallpaperName = "my-neighbour-totoro-sunflowers.png";
     sddmWallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${sddmWallpaperName}";
   in {
+    inherit wallpaper;
+
     #nixos-configurations
 
     nixosConfigurations = {

@@ -11,7 +11,7 @@ vim.cmd("highlight CursorLine guibg=#3C3E4F ctermbg=237")
 vim.opt.relativenumber = true
 vim.cmd("highlight CursorLineNr guifg=#F5C2E7 ctermfg=170")
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.whichwrap = "b,s,<,>,[,]"
 

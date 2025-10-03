@@ -6,12 +6,11 @@
   inputs,
   ...
 }: {
-  imports = [
-  ];
+  imports = [];
 
   environment.systemPackages = with pkgs; [
     git
-    neofetch
+    fastfetch
     home-manager
     tree
     fzf
@@ -20,6 +19,15 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+  ];
+
+  services.displayManager = {
+    gdm.enable = true;
+    autoLogin.enable = false;
+  };
+
+  services.displayManager.sessionPackages = [
+    inputs.niri.packages."${pkgs.system}".niri
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -56,11 +64,18 @@
     persistent = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  nix.optimise = {
+    automatic = true;
+    dates = ["06:00"];
+    randomizedDelaySec = "30min";
+    persistent = true;
   };
+
+  #programs.hyprland = {
+  #  enable = true;
+  #  xwayland.enable = true;
+  #  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  #};
 
   programs.zsh.enable = true;
 

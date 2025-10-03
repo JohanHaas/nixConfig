@@ -84,7 +84,7 @@ Item {
                         // Sitzung "hyprland" finden
                         let sessionIndex = -1;
                         for (let i = 0; i < sessionModel.rowCount(); i++) {
-                            if (sessionModel.data(sessionModel.index(i, 0), sessionModel.NameRole) === "hyprland") {
+                            if (sessionModel.data(sessionModel.index(i, 0), sessionModel.NameRole) === "niri") {
                                 sessionIndex = i;
                                 break;
                             }

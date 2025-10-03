@@ -5,12 +5,10 @@
   inputs,
   self,
   ...
-}:
-let
+}: let
   dir = builtins.dirOf __curPos.file;
   shutdownScript = "${dir}/assets/shutdown.sh";
-in
-{
+in {
   home.packages = with pkgs; [
     pavucontrol
   ];
@@ -24,9 +22,9 @@ in
         layer = "top";
         position = "top";
         modules-left = [
-          "hyprland/workspaces"
+          #"hyprland/workspaces"
         ];
-        modules-center = [ "clock" ];
+        modules-center = ["clock"];
         modules-right = [
           "custom/sysinfo"
           "battery"
@@ -98,21 +96,21 @@ in
           "tooltip" = false;
         };
 
-        "hyprland/workspaces" = {
-          "format" = "{icon}";
-          "on-click" = "activate";
-          "format-icons" = {
-            "default" = "●"; # ●
-            "active" = "●"; # ⬤
-            "urgent" = "";
-          };
-          "sort-by-number" = true;
-          "active-only" = false;
+        #"hyprland/workspaces" = {
+        #  "format" = "{icon}";
+        #  "on-click" = "activate";
+        #  "format-icons" = {
+        #    "default" = "●"; # ●
+        #    "active" = "●"; # ⬤
+        #    "urgent" = "";
+        #  };
+        #  "sort-by-number" = true;
+        #  "active-only" = false;
 
-          "persistent-workspaces" = {
-            "*" = 9;
-          };
-        };
+        #  "persistent-workspaces" = {
+        #    "*" = 9;
+        #  };
+        #};
       };
     };
   };

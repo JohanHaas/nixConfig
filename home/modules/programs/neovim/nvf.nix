@@ -93,7 +93,7 @@ in {
         filetree = {
           neo-tree = {
             enable = true;
-            setupOpts.window.width = 20;
+            setupOpts.window.width = 30;
           };
         };
 

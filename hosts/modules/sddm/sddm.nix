@@ -4,8 +4,7 @@
   sddmWallpaper,
   sddmWallpaperName,
   ...
-}:
-let
+}: let
   mainQML = ./sddm-config/Main.qml;
   metadata = ./sddm-config/metadata.desktop;
 
@@ -26,9 +25,7 @@ let
       EOF
     '';
   };
-in
-{
-
+in {
   environment.systemPackages = with pkgs; [
     kdePackages.sddm
     SddmTheme
@@ -56,6 +53,6 @@ in
       };
     };
 
-    theme = "SddmTheme";
+    #theme = "SddmTheme";
   };
 }

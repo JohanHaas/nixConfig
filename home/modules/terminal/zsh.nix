@@ -3,10 +3,8 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   home.shellAliases = {
-
   };
 
   home.file.".config/shell_functions.sh".text = builtins.readFile ./shellFunctions.sh;
@@ -35,6 +33,5 @@
     #   exec dbus-run-session Hyprland
     # fi
     #'';
-
   };
 }
