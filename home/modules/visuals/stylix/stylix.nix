@@ -2,9 +2,9 @@
   config,
   pkgs,
   inputs,
+  wallpaper,
   ...
-}:
-{
+}: {
   imports = [
     inputs.stylix.homeModules.stylix
   ];
@@ -13,6 +13,7 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     autoEnable = false;
+
     targets = {
       gtk.enable = true;
     };
@@ -28,5 +29,4 @@
     name = "Papirus";
     package = pkgs.papirus-icon-theme;
   };
-
 }

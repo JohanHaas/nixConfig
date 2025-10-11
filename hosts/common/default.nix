@@ -14,6 +14,7 @@
     home-manager
     tree
     fzf
+    ltrace
   ];
 
   nix.settings.experimental-features = [
@@ -21,10 +22,10 @@
     "flakes"
   ];
 
-  services.displayManager = {
-    gdm.enable = true;
-    autoLogin.enable = false;
-  };
+  #services.displayManager = {
+  #  gdm.enable = true;
+  #  autoLogin.enable = false;
+  #};
 
   services.displayManager.sessionPackages = [
     inputs.niri.packages."${pkgs.system}".niri
@@ -67,7 +68,6 @@
   nix.optimise = {
     automatic = true;
     dates = ["06:00"];
-    randomizedDelaySec = "30min";
     persistent = true;
   };
 

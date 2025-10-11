@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -39,6 +40,8 @@
       value = "-19";
     }
   ];
+
+  services.displayManager.gdm.enable = true;
 
   services.printing.enable = true;
 

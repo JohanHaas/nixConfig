@@ -7,7 +7,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     niri.url = "github:YaLTeR/niri";
+
+    agsConfig.url = "github:JohanHaas/agsConfig";
 
     #hyprland.url = "github:hyprwm/Hyprland";
 
@@ -18,14 +22,12 @@
 
     #hyprpaper.url = "github:hyprwm/hyprpaper";
 
-    waybar.url = "github:Alexays/Waybar";
+    #waybar.url = "github:Alexays/Waybar";
 
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix = {
       url = "github:danth/stylix";
@@ -42,6 +44,7 @@
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   }: let
     system = "x86_64-linux";
@@ -55,10 +58,7 @@
 
     #globally set wallpaper
     wallpaperName = builtins.readFile ./assets/wallpaper_name.txt;
-    wallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${wallpaperName}";
-
-    sddmWallpaperName = "my-neighbour-totoro-sunflowers.png";
-    sddmWallpaper = "${inputs.wallpapers.packages.${pkgs.system}.default}/${sddmWallpaperName}";
+    wallpaper = builtins.toString "${inputs.wallpapers.packages.${pkgs.system}.default}/my-neighbour-totoro-sunflowers.png";
   in {
     inherit wallpaper;
 
@@ -67,7 +67,9 @@
     nixosConfigurations = {
       nix-tests = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs self;};
+        specialArgs = {
+          inherit inputs self;
+        };
         modules = [
           ./hosts/common
           ./usrs
@@ -79,12 +81,7 @@
       nixos-Johan = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit
-            inputs
-            self
-            sddmWallpaper
-            sddmWallpaperName
-            ;
+          inherit inputs self;
         };
         modules = [
           ./hosts/common

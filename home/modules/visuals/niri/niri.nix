@@ -15,6 +15,8 @@
     swaybg
     dbus
     xwayland-satellite
+    wlogout
+    inputs.agsConfig.packages.${system}.default
   ];
 
   xdg.portal = {

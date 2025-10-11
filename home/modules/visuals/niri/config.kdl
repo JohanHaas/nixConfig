@@ -13,6 +13,9 @@ environment {
 
 
 input {
+    
+    disable-power-key-handling
+
     keyboard {
         xkb {
             layout "de"
@@ -70,9 +73,9 @@ input {
 output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
-    mode "1920x1080@120.030"
+    mode "2256x1504@59.999"
 
-    scale 1.5
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -85,7 +88,7 @@ output "eDP-1" {
 
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
-    gaps 8
+    gaps 4
     center-focused-column "never"
 
     preset-column-widths {
@@ -152,6 +155,7 @@ prefer-no-csd
 spawn-sh-at-startup "swaybg -i $(nix eval --raw ~/.config/niri/flake.nix#wallpaper)"
 
 spawn-at-startup "xwayland-satellite"
+//spawn-at-startup "agsBar"
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -164,7 +168,7 @@ hotkey-overlay {
 }
 
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Bilder/Screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png"
 
 
 // https://yalter.github.io/niri/Configuration:-Animations
@@ -218,6 +222,8 @@ binds {
 
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    XF86PowerOff { spawn "wlogout"; }
 
     Mod+X repeat=false { toggle-overview; }
 
@@ -295,13 +301,4 @@ binds {
     Mod+Shift+O { power-off-monitors; }
 }
 
-workspace "1" {}
-workspace "2" {}
-workspace "3" {}
-workspace "4" {}
-workspace "5" {}
-workspace "6" {}
-workspace "7" {}
-workspace "8" {}
-workspace "9" {}
 

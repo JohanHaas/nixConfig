@@ -22,6 +22,7 @@
     spotify
     gimp
     wasistlos
+    fluent-icon-theme
   ];
 
   home.file = {
