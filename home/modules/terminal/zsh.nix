@@ -9,6 +9,10 @@
 
   home.file.".config/shell_functions.sh".text = builtins.readFile ./shellFunctions.sh;
 
+  home.packages = with pkgs; [
+    jq
+  ];
+
   programs.zsh = {
     enable = true;
 
