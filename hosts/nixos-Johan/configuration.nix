@@ -19,6 +19,15 @@
     qjackctl
   ];
 
+  services.vaultwarden = {
+    enable = true;
+    config = {
+      ROCKET_PORT = 8222;
+      DOMAIN = "https://vault.example.com";
+      SIGNUPS_ALLOWED = false;
+    };
+  };
+
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [
     {

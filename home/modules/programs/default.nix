@@ -3,5 +3,6 @@
     ./neovim
     ./Fuzzel
     ./hypridle
+    ./firefox
   ];
 }

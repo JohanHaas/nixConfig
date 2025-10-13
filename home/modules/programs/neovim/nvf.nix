@@ -15,12 +15,18 @@ in {
   home.packages = with pkgs; [
     nerd-fonts.hack
     wl-clipboard
+
+    texlive.combined.scheme-full
+    latexmk
+    biber
+    zathura
   ];
 
   fonts.fontconfig.enable = true;
 
   programs.nvf = {
     enable = true;
+
     settings = {
       vim = {
         luaConfigRC = lib.mkAfter {

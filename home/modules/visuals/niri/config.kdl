@@ -155,7 +155,7 @@ prefer-no-csd
 spawn-sh-at-startup "swaybg -i $(nix eval --raw ~/.config/niri/flake.nix#wallpaper)"
 
 spawn-at-startup "xwayland-satellite"
-//spawn-at-startup "agsBar"
+spawn-at-startup "agsBar"
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -301,4 +301,13 @@ binds {
     Mod+Shift+O { power-off-monitors; }
 }
 
+workspace "1" {}
+workspace "2" {}
+workspace "3" {}
+workspace "4" {}
+workspace "5" {}
+workspace "6" {}
+workspace "7" {}
+workspace "8" {}
+workspace "9" {}
 
