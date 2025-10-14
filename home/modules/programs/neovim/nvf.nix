@@ -16,9 +16,7 @@ in {
     nerd-fonts.hack
     wl-clipboard
 
-    texlive.combined.scheme-full
-    latexmk
-    biber
+    texlive
     zathura
   ];
 
@@ -29,6 +27,22 @@ in {
 
     settings = {
       vim = {
+        extraPlugins = {
+          vimtex = {
+            package = pkgs.vimPlugins.vimtex;
+            setup = ''
+              vim.g.vimtex_view_method = 'zathura'
+
+              vim.g.vimtex_compiler_latexmk = {
+                build_dir = 'build',
+                continuous = 1
+              }
+
+              vim.g.vimtex_quickfix_mode = 0
+            '';
+          };
+        };
+
         luaConfigRC = lib.mkAfter {
           data = luaContent;
         };
