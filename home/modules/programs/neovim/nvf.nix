@@ -12,13 +12,17 @@ in {
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
+
   home.packages = with pkgs; [
     nerd-fonts.hack
     wl-clipboard
 
-    texlive
+    texliveFull
+    texlivePackages.enumitem
     zathura
   ];
+
+  home.file.".texfiles/.gitkeep".text = "";
 
   fonts.fontconfig.enable = true;
 
@@ -32,13 +36,16 @@ in {
             package = pkgs.vimPlugins.vimtex;
             setup = ''
               vim.g.vimtex_view_method = 'zathura'
+              vim.g.vimtex_compiler_method = 'latexmk'
+              vim.g.vimtex_view_forward_search_on_start = 1
 
               vim.g.vimtex_compiler_latexmk = {
                 build_dir = 'build',
-                continuous = 1
+                continuous = 1,
+                executable = 'latexmk',
+                aux_dir = "/home/${config.home.username}/.texfiles/",
+                out_dir = "/home/${config.home.username}/.texfiles/",
               }
-
-              vim.g.vimtex_quickfix_mode = 0
             '';
           };
         };
@@ -94,6 +101,7 @@ in {
           java.enable = true;
           ts.enable = true;
           haskell.enable = true;
+          ocaml.enable = true;
         };
 
         visuals = {

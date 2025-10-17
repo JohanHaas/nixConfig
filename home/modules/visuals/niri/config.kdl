@@ -199,6 +199,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="zathura"
+    
+    default-column-width {proportion 0.33333; }
+
+}
+
+window-rule {
     geometry-corner-radius 15
     clip-to-geometry true
 }

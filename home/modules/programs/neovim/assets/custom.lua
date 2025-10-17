@@ -44,20 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-if vim.fn.executable("wl-copy") == 1 and vim.fn.executable("wl-paste") == 1 then
-	vim.g.clipboard = {
-		name = "wl-clipboard",
-		copy = {
-			["+"] = "wl-copy",
-			["*"] = "wl-copy --primary",
-		},
-		paste = {
-			["+"] = "wl-paste",
-			["*"] = "wl-paste --primary",
-		},
-	}
-end
-
 vim.g.mapleader = ","
 
 vim.keymap.set("n", "<Leader>n", function()
@@ -69,9 +55,31 @@ vim.keymap.set("n", "<Leader>n", function()
 end, { desc = "Toggle Focus Neo-tree / Code Window" })
 
 vim.keymap.set("n", "<Leader>k", function()
-	os.execute("alacritty --title neovim_alacritty_floating --working-directory " .. os.getenv("PWD") .. " &")
+	os.execute("alacritty --title neovim_alacritty --working-directory " .. os.getenv("PWD") .. " &")
 end, { desc = "terminal" })
 
-vim.api.nvim_set_keymap("x", "<C-c>", '"+y<Esc>', { noremap = true, silent = true, desc = "Copy to system clipboard" })
+local function setup_tex_autosave()
+	-- Prüfen, ob die aktuelle Datei eine .tex-Datei ist
+	if vim.bo.filetype ~= "tex" then
+		return
+	end
 
-vim.api.nvim_set_keymap("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from system clipboard" })
+	-- Timer erstellen
+	local timer = vim.loop.new_timer()
+	timer:start(
+		5000,
+		5000,
+		vim.schedule_wrap(function()
+			-- Nur speichern, wenn Buffer verändert wurde
+			if vim.bo.modified then
+				vim.cmd("silent write")
+			end
+		end)
+	)
+end
+
+-- AutoCmd, um den Timer nur für .tex Dateien zu starten
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tex",
+	callback = setup_tex_autosave,
+})

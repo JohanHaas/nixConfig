@@ -1,7 +1,6 @@
 {
   imports = [
-    ../ags.nix
-    ../programming
-    ../terminal
+    ../programs/Fuzzel
+    ../programs/neovim
   ];
 }

@@ -23,6 +23,7 @@
     gimp
     wasistlos
     fluent-icon-theme
+    pavucontrol
   ];
 
   home.file = {
