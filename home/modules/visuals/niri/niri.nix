@@ -9,6 +9,7 @@
 }: {
   home.file.".config/niri/config.kdl".source = ./config.kdl;
   home.file.".config/niri/flake.nix".source = "${self}/flake.nix";
+  home.file.".config/niri/flake.lock".source = "${self}/flake.lock";
 
   home.packages = with pkgs; [
     inputs.niri.packages."${pkgs.system}".niri

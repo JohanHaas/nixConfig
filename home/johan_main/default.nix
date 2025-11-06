@@ -24,6 +24,8 @@
     wasistlos
     fluent-icon-theme
     pavucontrol
+
+    inputs.ccs.packages.${system}.default
   ];
 
   home.file = {
@@ -39,6 +41,20 @@
         hostname = "github.com";
         user = "git";
         identityFile = "~/.ssh/id_ed25519_github";
+        identitiesOnly = true;
+      };
+
+      "netcup-rootUser" = {
+        hostname = "152.53.239.157";
+        user = "nixer";
+        identityFile = "~/ssh-keys/rootUser";
+        identitiesOnly = true;
+      };
+
+      "netcup-vpnUser" = {
+        hostname = "152.53.239.157";
+        user = "vpnUser";
+        identityFile = "~/ssh-keys/vpnUser";
         identitiesOnly = true;
       };
     };

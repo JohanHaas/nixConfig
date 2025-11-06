@@ -18,6 +18,8 @@
 
     agsConfig.url = "github:JohanHaas/agsConfig";
 
+    ccs.url = "Path:/pkgs/ccs-nix/";
+
     #hyprland.url = "github:hyprwm/Hyprland";
 
     #hyprland-plugins = {
@@ -57,6 +59,9 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [
+        "python-2.7.18.8"
+      ];
       overlays = [
       ];
     };
