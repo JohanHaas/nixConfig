@@ -18,7 +18,7 @@
 
     agsConfig.url = "github:JohanHaas/agsConfig";
 
-    ccs.url = "Path:/pkgs/ccs-nix/";
+    ccs.url = "path:pkgs/ccs/";
 
     #hyprland.url = "github:hyprwm/Hyprland";
 

@@ -130,6 +130,20 @@
         "type": "github"
       }
     },
+    "ccs": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "path": "pkgs/ccs/",
+        "type": "path"
+      },
+      "original": {
+        "path": "pkgs/ccs/",
+        "type": "path"
+      },
+      "parent": []
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -296,7 +310,7 @@
     },
     "niri": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
@@ -347,6 +361,21 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1762450477,
+        "narHash": "sha256-VkDKer37V6MnC0FYLCzJAv3b4/UiKguIXR0SWcDqm2A=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b4b45228878e6bfe49bdc5e01dc1a22a2de3dd38",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1757967192,
         "narHash": "sha256-/aA9A/OBmnuOMgwfzdsXRusqzUpd8rQnQY8jtrHK+To=",
         "owner": "NixOS",
@@ -361,7 +390,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1752950548,
         "narHash": "sha256-NS6BLD0lxOrnCiEOcvQCDVPXafX1/ek1dfJHX1nUIzc=",
@@ -429,11 +458,12 @@
     "root": {
       "inputs": {
         "agsConfig": "agsConfig",
+        "ccs": "ccs",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nvf": "nvf",
         "stylix": "stylix",
         "wallpapers": "wallpapers"

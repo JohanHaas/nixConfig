@@ -19,7 +19,6 @@ local tab_settings = {
 	["nix"] = 2,
 	["qml"] = 2,
 	["sh"] = 2,
-	["c"] = 2,
 	["h"] = 2,
 	["rs"] = 2,
 	["cpp"] = 2,
