@@ -24,18 +24,15 @@
     wasistlos
     fluent-icon-theme
     pavucontrol
-
-    inputs.ccs.packages.${system}.default
+    usbutils
   ];
-
-  home.file = {
-  };
 
   home.sessionVariables = {
   };
 
   programs.ssh = {
     enable = true;
+
     matchBlocks = {
       "github.com" = {
         hostname = "github.com";
@@ -51,9 +48,9 @@
         identitiesOnly = true;
       };
 
-      "netcup-vpnUser" = {
+      "netcup-wireguard" = {
         hostname = "152.53.239.157";
-        user = "vpnUser";
+        user = "wireguard";
         identityFile = "~/ssh-keys/vpnUser";
         identitiesOnly = true;
       };

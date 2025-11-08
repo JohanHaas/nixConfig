@@ -88,8 +88,7 @@
             # PF_PGA: PGA Sensor Signal Conditioners
 
             steam-run ./CCS${version}.${build}_linux-x64/ccs_setup_${version}.${build}.run --mode unattended --prefix /build/ti/ \
-              --enable-components PF_MSP430,PF_MSP432,PF_MSPM0,PF_WCONN,PF_C28,PF_TM4C,PF_HERCULES,PF_SITARA,PF_SITARA_MCU,PF_OMAPL,PF_DAVINCI,PF_OMAP,PF_TDA_DRA,PF_C55,PF_C6000SC,PF_C66AK_KEYSTONE,PF_MMWAVE,PF_C64MC,PF_DIGITAL_POWER,PF_PGA
-
+              --enable-components PF_MSP432
             #echo "Building libraries"
             # compile the libraries for your target arch
             # PATH=/build/ti/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin:$PATH steam-run /build/ti/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib/mklib --pattern TI-RTOS.lib

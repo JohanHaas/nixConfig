@@ -18,7 +18,9 @@
 
     agsConfig.url = "github:JohanHaas/agsConfig";
 
-    ccs.url = "path:pkgs/ccs/";
+    #ccs.url = "github:abeljim/ccs-nix";
+
+    ccs.url = "path:pkgs/ccs20";
 
     #hyprland.url = "github:hyprwm/Hyprland";
 
@@ -114,6 +116,7 @@
         modules = [
           ./home/common
           ./home/johan_nix-tests
+          inputs.ccs.homeManagerModules.ccs
         ];
       };
 
@@ -138,6 +141,7 @@
         modules = [
           ./home/common
           ./home/johan_main
+          inputs.ccs.homeManagerModules.ccs
         ];
       };
     };
