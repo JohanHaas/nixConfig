@@ -1,8 +1,7 @@
 {
   imports = [
-    ./Hyprland
-    ./Hyprlock
-    ./Waybar
     ./stylix
+    ./wlogout
+    ./niri
   ];
 }

@@ -6,7 +6,6 @@
 }: {
   imports = [
     ../modules/userImports/johan_main.nix
-    ../modules/visuals/niri/niri.nix
   ];
 
   home.username = "johan";

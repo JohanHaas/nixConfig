@@ -1,0 +1,49 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1763678758,
+        "narHash": "sha256-+hBiJ+kG5IoffUOdlANKFflTT5nO3FrrR2CA3178Y5s=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "117cc7f94e8072499b0a7aa4c52084fa4e11cc9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "wallpapers": "wallpapers"
+      }
+    },
+    "wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756286275,
+        "narHash": "sha256-KujTG/V5bDuX5gI11TFm1iOOnoQND9H3bduAqsShPNY=",
+        "ref": "main",
+        "rev": "a6b3d0e0a7bd1e6c3dc3f08e9bee6082cd2b69ad",
+        "revCount": 10,
+        "type": "git",
+        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

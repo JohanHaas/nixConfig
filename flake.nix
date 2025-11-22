@@ -16,22 +16,9 @@
 
     niri.url = "github:YaLTeR/niri";
 
+    niri-config.url = "path:pkgs/niri-config";
+
     agsConfig.url = "github:JohanHaas/agsConfig";
-
-    #ccs.url = "github:abeljim/ccs-nix";
-
-    ccs.url = "path:pkgs/ccs20";
-
-    #hyprland.url = "github:hyprwm/Hyprland";
-
-    #hyprland-plugins = {
-    #  url = "github:hyprwm/hyprland-plugins";
-    #  inputs.hyprland.follows = "hyprland";
-    #};
-
-    #hyprpaper.url = "github:hyprwm/hyprpaper";
-
-    #waybar.url = "github:Alexays/Waybar";
 
     nvf = {
       url = "github:NotAShelf/nvf";
@@ -61,15 +48,11 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      config.permittedInsecurePackages = [
-        "python-2.7.18.8"
-      ];
       overlays = [
       ];
     };
 
     #globally set wallpaper
-    wallpaperName = builtins.readFile ./assets/wallpaper_name.txt;
     wallpaper = builtins.toString "${inputs.wallpapers.packages.${pkgs.system}.default}/my-neighbour-totoro-sunflowers.png";
   in {
     inherit wallpaper;
@@ -116,7 +99,6 @@
         modules = [
           ./home/common
           ./home/johan_nix-tests
-          inputs.ccs.homeManagerModules.ccs
         ];
       };
 
@@ -135,13 +117,11 @@
             inputs
             self
             wallpaper
-            wallpaperName
             ;
         };
         modules = [
           ./home/common
           ./home/johan_main
-          inputs.ccs.homeManagerModules.ccs
         ];
       };
     };

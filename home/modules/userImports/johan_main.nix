@@ -1,8 +1,6 @@
 {
   imports = [
-    ../visuals/niri
-    ../visuals/stylix
-    ../visuals/wlogout
+    ../visuals
     ../terminal
     ../programs
   ];

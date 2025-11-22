@@ -14,7 +14,6 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    inputs.niri.packages."${pkgs.system}".niri
   ];
 
   home.file = {

@@ -3,10 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
-
+}: {
   imports = [
     ../modules/userImports/johan_mint.nix
   ];
@@ -15,19 +12,14 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    nodejs_24
-    typescript
   ];
 
   home.file = {
-
   };
 
   home.sessionVariables = {
-
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }

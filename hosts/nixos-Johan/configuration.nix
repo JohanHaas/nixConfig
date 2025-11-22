@@ -17,7 +17,14 @@
     guitarix
     jack2
     qjackctl
+
+    distrobox
   ];
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [
