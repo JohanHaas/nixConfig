@@ -467,8 +467,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nvf": "nvf",
-        "stylix": "stylix",
-        "wallpapers": "wallpapers_2"
+        "stylix": "stylix"
       }
     },
     "rust-overlay": {
@@ -641,27 +640,6 @@
       "inputs": {
         "nixpkgs": [
           "niri-config",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1756286275,
-        "narHash": "sha256-KujTG/V5bDuX5gI11TFm1iOOnoQND9H3bduAqsShPNY=",
-        "ref": "main",
-        "rev": "a6b3d0e0a7bd1e6c3dc3f08e9bee6082cd2b69ad",
-        "revCount": 10,
-        "type": "git",
-        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "ssh://git@github.com/JohanHaas/wallpapers.git"
-      }
-    },
-    "wallpapers_2": {
-      "inputs": {
-        "nixpkgs": [
           "nixpkgs"
         ]
       },

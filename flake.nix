@@ -46,12 +46,7 @@
       overlays = [
       ];
     };
-
-    #globally set wallpaper
-    wallpaper = builtins.toString "${inputs.wallpapers.packages.${pkgs.system}.default}/my-neighbour-totoro-sunflowers.png";
   in {
-    inherit wallpaper;
-
     #nixos-configurations
 
     nixosConfigurations = {
@@ -89,7 +84,7 @@
       "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs self wallpaper;
+          inherit inputs self;
         };
         modules = [
           ./home/common
@@ -108,11 +103,7 @@
       "johan@nixos-Johan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit
-            inputs
-            self
-            wallpaper
-            ;
+          inherit inputs self;
         };
         modules = [
           ./home/common
