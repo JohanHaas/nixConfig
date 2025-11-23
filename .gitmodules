@@ -1,3 +1,0 @@
-[submodule "pkgs/ccs-nix"]
-	path = pkgs/ccs-nix
-	url = https://github.com/Legend-Power-Systems/ccs-nix.git
