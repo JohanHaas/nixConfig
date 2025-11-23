@@ -29,11 +29,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    wallpapers = {
-      url = "git+ssh://git@github.com/JohanHaas/wallpapers.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
