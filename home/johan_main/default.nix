@@ -19,7 +19,6 @@
     protonvpn-gui
     discord
     spotify
-    gimp
     wasistlos
     fluent-icon-theme
     pavucontrol

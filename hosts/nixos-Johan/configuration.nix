@@ -101,10 +101,6 @@
   };
   services.blueman.enable = true;
 
-  programs.thunar.enable = true;
-  programs.xfconf.enable = true;
-  services.gvfs.enable = true;
-
   services.fwupd.enable = true;
 
   system.stateVersion = "25.11";
