@@ -92,11 +92,11 @@
         ];
       };
 
-      "johan@mint" = home-manager.lib.homeManagerConfiguration {
+      "johan@deb" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs self;};
         modules = [
-          ./home/johan_mint
+          ./home/johan_deb
         ];
       };
 
