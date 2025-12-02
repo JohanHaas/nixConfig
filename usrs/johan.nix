@@ -11,7 +11,6 @@
       "networkmanager"
       "wheel"
       "libvirtd"
-      "fprint"
       "audio"
       "plugdev"
       "dialout"
