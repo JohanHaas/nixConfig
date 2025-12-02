@@ -16,6 +16,7 @@
     xwayland-satellite
     wlogout
     inputs.agsConfig.packages.${system}.default
+    fluent-icon-theme
   ];
 
   xdg.portal = {

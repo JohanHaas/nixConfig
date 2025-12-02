@@ -16,11 +16,9 @@
   home.packages = with pkgs; [
     anki
     eog
-    protonvpn-gui
     discord
     spotify
     wasistlos
-    fluent-icon-theme
     pavucontrol
     usbutils
   ];

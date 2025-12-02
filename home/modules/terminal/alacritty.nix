@@ -3,13 +3,11 @@
   pkgs,
   self,
   ...
-}:
-{
+}: {
   programs.alacritty = {
     enable = true;
 
     settings = {
-
       window = {
         opacity = 0.8;
         decorations = "none";
@@ -68,7 +66,6 @@
           cyan = "0x94e2d5";
           white = "0xa6adc8";
         };
-
       };
     };
   };

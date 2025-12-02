@@ -48,6 +48,8 @@
     }
   ];
 
+  hardware.enableAllFirmware = true;
+
   services.displayManager.gdm.enable = true;
 
   services.printing.enable = true;

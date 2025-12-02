@@ -152,7 +152,7 @@ prefer-no-csd
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-sh-at-startup "swaybg -i $(nix eval --raw ~/.config/niri/flake.nix#wallpaper)"
+spawn-sh-at-startup "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.0"
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "agsBar"
@@ -198,16 +198,20 @@ window-rule {
     block-out-from "screen-capture"
 }
 
-window-rule {
-    match app-id="zathura"
-    default-column-width {proportion 0.33333; }
 
-}
 
 window-rule {
     geometry-corner-radius 15
     clip-to-geometry true
+
+    default-column-width {proportion 1.0; }
 }
+
+window-rule {
+    match app-id="zathura"
+    default-column-width {proportion 0.33333; }
+}
+
 
 binds {
     Mod+H { show-hotkey-overlay; }
@@ -286,8 +290,8 @@ binds {
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
+    Mod+R repeat=false { switch-preset-column-width; }
+    Mod+Shift+R repeat=false { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
