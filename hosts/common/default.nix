@@ -22,11 +22,7 @@
     "flakes"
   ];
 
-  #services.displayManager = {
-  #  gdm.enable = true;
-  #  autoLogin.enable = false;
-  #};
-
+  services.displayManager.gdm.enable = true;
   services.displayManager.sessionPackages = [
     inputs.niri.packages."${pkgs.system}".niri
   ];
@@ -35,12 +31,12 @@
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.enableAllFirmware = true;
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";
-
   i18n.defaultLocale = "de_DE.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -52,7 +48,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
   console.keyMap = "de";
 
   nixpkgs.config.allowUnfree = true;
@@ -71,15 +66,7 @@
     persistent = true;
   };
 
-  #programs.hyprland = {
-  #  enable = true;
-  #  xwayland.enable = true;
-  #  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  #};
-
   programs.zsh.enable = true;
-
-  #services.udisks2.enable = true;
 
   services.pipewire = {
     enable = true;

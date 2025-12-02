@@ -48,21 +48,14 @@
     }
   ];
 
-  hardware.enableAllFirmware = true;
-
-  services.displayManager.gdm.enable = true;
-
   services.printing.enable = true;
-
   services.avahi.enable = true;
 
   services.upower.enable = true;
 
   #virtualmachines
   programs.virt-manager.enable = true;
-
   users.groups.libvirtd.members = ["johan"];
-
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -80,9 +73,7 @@
       };
     };
   };
-
   virtualisation.spiceUSBRedirection.enable = true;
-
   networking.firewall.trustedInterfaces = ["virbr0"];
 
   #powermenu
@@ -91,8 +82,6 @@
   '';
 
   services.fprintd.enable = false;
-
-  security.pam.services.hyprlock = {};
 
   networking.hostName = "nixos-Johan";
 

@@ -1,17 +1,15 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+  ];
 
   environment.systemPackages = with pkgs; [
-    
   ];
-  
-  networking.hostName = "nix-tests";
 
+  networking.hostName = "nix-tests";
 
   services.xserver.xkb = {
     layout = "de";
@@ -22,9 +20,9 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;  # Wichtig für Laptops/Energiesparmodus
-    open = false;  # Falls du den Open-Source-Treiber testen willst (nicht empfohlen für Gaming)
-    nvidiaSettings = true;  # Für nvidia-settings GUI
-    package = config.boot.kernelPackages.nvidiaPackages.stable;  # Stabile Version
+    powerManagement.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }
