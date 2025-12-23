@@ -23,7 +23,13 @@
       overlays = [
       ];
     };
-  in {
+
+    wallpaperPath = 
+      if inputs ? wallpapers && inputs.wallpapers ? packages.${system}.default
+      then "${inputs.wallpapers.packages.${system}.default}/my-neighbour-totoro-sunflowers.png"
+      else "${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png";
+
+      in {
     packages.${system} = {
       default = pkgs.stdenv.mkDerivation rec {
         name = "niri-config";
@@ -34,7 +40,7 @@
 
           cp $src/config.kdl ./config.kdl
 
-          echo "spawn-sh-at-startup \"swaybg -i ${inputs.wallpapers.packages.${pkgs.system}.default}/my-neighbour-totoro-sunflowers.png\"" >> ./config.kdl
+          echo "spawn-sh-at-startup \"swaybg -i ${wallpaperPath}\"" >> ./config.kdl
 
           cp ./config.kdl $out/
         '';

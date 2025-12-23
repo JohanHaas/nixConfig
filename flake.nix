@@ -62,6 +62,7 @@
           ./usrs
           ./hosts/nix-tests
           inputs.disko.nixosModules.disko
+          ./disko/disko-config.nix
           inputs.home-manager.nixosModules.default
         ];
       };
