@@ -19,7 +19,13 @@
     qjackctl
 
     distrobox
+
+
   ];
+  
+  services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
+
 
   virtualisation.podman = {
     enable = true;
@@ -48,7 +54,7 @@
     }
   ];
 
-  services.printing.enable = true;
+  services.printing.enable = false;
   services.avahi.enable = true;
 
   services.upower.enable = true;

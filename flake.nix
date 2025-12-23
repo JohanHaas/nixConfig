@@ -18,12 +18,9 @@
 
     niri-config.url = "path:pkgs/niri-config";
 
-    agsConfig.url = "github:JohanHaas/agsConfig";
+    nvim-config.url = "path:pkgs/nvim";
 
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    agsConfig.url = "github:JohanHaas/agsConfig";
 
     stylix = {
       url = "github:danth/stylix";
@@ -108,6 +105,7 @@
         modules = [
           ./home/common
           ./home/johan_main
+          inputs.nvim-config.homeManagerModules.default
         ];
       };
     };

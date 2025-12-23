@@ -21,7 +21,15 @@
     wasistlos
     pavucontrol
     usbutils
+    pdfpc
+    jdk21_headless
   ];
+
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+  };
 
   home.sessionVariables = {
   };

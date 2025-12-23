@@ -22,10 +22,17 @@
     "flakes"
   ];
 
-  services.displayManager.gdm.enable = true;
-  services.displayManager.sessionPackages = [
-    inputs.niri.packages."${pkgs.system}".niri
-  ];
+  services.displayManager = {
+    gdm = {
+      enable = true;
+      wayland = true;
+    };
+
+    defaultSession = "niri";
+    sessionPackages = [
+      inputs.niri.packages."${pkgs.system}".niri
+    ];
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 0;
