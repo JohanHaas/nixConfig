@@ -61,6 +61,7 @@
           ./hosts/common
           ./usrs
           ./hosts/nix-tests
+          inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.default
         ];
       };
@@ -92,6 +93,7 @@
         modules = [
           ./home/common
           ./home/johan_nix-tests
+          inputs.nvim-config.homeManagerModules.default
         ];
       };
 

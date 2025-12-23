@@ -1,27 +1,32 @@
-{
-  disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              priority = 1;
-              name = "ESP";
-              start = "1M";
-              end = "512M";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = ["umask=0077"];
-              };
+disko.devices = {
+  disk = {
+    main = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          ESP = {
+            priority = 1;
+            name = "ESP";
+            start = "1M";
+            end = "512M";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = ["umask=0077"];
             };
-            root = {
-              size = "100%";
+          };
+          root = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "cryptroot";
+              settings = {
+                allowDiscards = true;  # für SSDs empfohlen
+              };
               content = {
                 type = "btrfs";
                 extraArgs = ["-f"];
@@ -30,21 +35,17 @@
                     mountpoint = "/";
                     mountOptions = ["compress=zstd" "noatime"];
                   };
-
                   "/nix" = {
                     mountpoint = "/nix";
                     mountOptions = ["noatime"];
                   };
-
                   "/home" = {
                     mountpoint = "/home";
                     mountOptions = ["compress=zstd" "noatime"];
                   };
-
                   "/snapshots" = {
-                    mountpoint = "/.snapshots"; 
+                    mountpoint = "/.snapshots";
                   };
-
                 };
               };
             };
@@ -53,4 +54,4 @@
       };
     };
   };
-}
+};
