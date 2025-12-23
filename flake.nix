@@ -14,6 +14,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri.url = "github:YaLTeR/niri";
 
     niri-config.url = "path:pkgs/niri-config";
@@ -69,6 +74,7 @@
           ./hosts/common
           ./usrs
           ./hosts/nixos-Johan
+          inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];
