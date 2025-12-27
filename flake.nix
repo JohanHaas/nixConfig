@@ -52,7 +52,7 @@
     #nixos-configurations
 
     nixosConfigurations = {
-      nix-tests = nixpkgs.lib.nixosSystem {
+      idea = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs self;
@@ -67,7 +67,7 @@
         ];
       };
 
-      nixos-Johan = nixpkgs.lib.nixosSystem {
+      fw13 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs self;
@@ -77,6 +77,7 @@
           ./usrs
           ./hosts/nixos-Johan
           inputs.disko.nixosModules.disko
+          ./disko/disko-config.nix
           inputs.home-manager.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];
@@ -86,34 +87,26 @@
     # Home-configurations
 
     homeConfigurations = {
-      "johan@nix-tests" = home-manager.lib.homeManagerConfiguration {
+      "johan@idea" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs self;
         };
         modules = [
           ./home/common
-          ./home/johan_nix-tests
+          ./home/johan_idea
           inputs.nvim-config.homeManagerModules.default
         ];
       };
 
-      "johan@deb" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs self;};
-        modules = [
-          ./home/johan_deb
-        ];
-      };
-
-      "johan@nixos-Johan" = home-manager.lib.homeManagerConfiguration {
+      "johan@fw13" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs self;
         };
         modules = [
           ./home/common
-          ./home/johan_main
+          ./home/johan_fw13
           inputs.nvim-config.homeManagerModules.default
         ];
       };

@@ -23,6 +23,11 @@ vim.opt.softtabstop = 4
 opt.mouse = ""
 
 
+--disable swap
+vim.opt.swapfile = false
+
+
+
 local tab_settings = {
     ["nix"] = 2,
 	["sh"] = 2,

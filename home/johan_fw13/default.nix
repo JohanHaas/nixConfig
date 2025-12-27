@@ -22,7 +22,7 @@
     pavucontrol
     usbutils
     pdfpc
-    jdk21_headless
+    bitwarden-desktop
   ];
 
 
