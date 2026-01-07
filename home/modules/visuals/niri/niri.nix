@@ -11,13 +11,21 @@
 
   home.packages = with pkgs; [
     inputs.niri.packages."${pkgs.system}".niri
-    swaybg
+    swaybg #background image
     dbus
     xwayland-satellite
     wlogout
     inputs.agsConfig.packages.${system}.default
     fluent-icon-theme
   ];
+
+
+  #audio and brightness slider
+  services.swayosd = {
+    enable = true;
+    topMargin = 0.9;
+  };
+
 
   xdg.portal = {
     enable = true;
