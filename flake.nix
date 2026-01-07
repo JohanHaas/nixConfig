@@ -82,6 +82,21 @@
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];
       };
+
+      desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs self;
+        };
+
+        modules = [
+
+
+
+          inputs.disko.nixosModules.disko
+          ./disko/disko-desktop.nix
+        ];
+      };
     };
 
     # Home-configurations
