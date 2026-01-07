@@ -26,9 +26,10 @@
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  virtualisation.docker.enable = true;
 
   virtualisation.podman = {
-    enable = true;
+    enable = false;
     dockerCompat = true;
   };
 

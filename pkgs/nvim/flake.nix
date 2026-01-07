@@ -35,6 +35,7 @@
     homeManagerModules.default = { pkgs, ... }:
     {
       home.file.".config/nvim".source = self.packages.${pkgs.system}.default;
+      home.file.".tex/.keep".text = "";
 
       home.packages = with pkgs; [
         lua-language-server

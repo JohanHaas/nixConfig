@@ -75,9 +75,9 @@
         modules = [
           ./hosts/common
           ./usrs
-          ./hosts/nixos-Johan
-          inputs.disko.nixosModules.disko
-          ./disko/disko-config.nix
+          ./hosts/fw13
+          #inputs.disko.nixosModules.disko
+          #./disko/disko-config.nix
           inputs.home-manager.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];

@@ -14,6 +14,7 @@
       "audio"
       "plugdev"
       "dialout"
+      "docker"
     ];
     packages = with pkgs; [];
     
