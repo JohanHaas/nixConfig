@@ -16,10 +16,6 @@
     qjackctl
   ];
 
-  services.openssh = {
-    enable = true;
-  };
-
   programs.steam.enable = true;
 
   services.desktopManager.gnome.enable = true;
