@@ -1,6 +1,6 @@
 {
   imports = [
     ./Fuzzel
-    ./firefox
+    ./librewolf
   ];
 }

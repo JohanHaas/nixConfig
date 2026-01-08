@@ -5,8 +5,6 @@
   ...
 }: 
 let
-  firefox-addons = inputs.firefox-addons.packages.${pkgs.system};
-
   mkExtensionSymlink = ext: {
     name = ".librewolf/gaocorkf.default/extensions/${ext.passthru.addonId}.xpi";
     value = {
@@ -14,20 +12,28 @@ let
     };
   };
   
-  extensions = [
-    firefox-addons.bitwarden
-    firefox-addons.ublock-origin
-    firefox-addons.darkreader
-    firefox-addons.privacy-badger
-    firefox-addons.localcdn
-    firefox-addons.sponsorblock
-    firefox-addons.return-youtube-dislikes
-    firefox-addons.youtube-shorts-block
-    firefox-addons.duckduckgo-privacy-essentials
+  extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+    bitwarden
+    ublock-origin
+    darkreader
+    privacy-badger
+    localcdn
+    sponsorblock
+    return-youtube-dislikes
+    youtube-shorts-block
+    duckduckgo-privacy-essentials
   ];
 in
 {
+  #librewolf extensions
   home.file = builtins.listToAttrs (map mkExtensionSymlink extensions);
+  
+
+  #load firefox profiles into memory
+  services.psd = {
+    enable = true;
+    resyncTimer = "1h";
+  };
 
   programs.firefox = {
     enable = true;
