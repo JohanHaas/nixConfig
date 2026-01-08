@@ -3,17 +3,46 @@
   pkgs,
   inputs,
   ...
-}: {
+}: 
+let
+  firefox-addons = inputs.firefox-addons.packages.${pkgs.system};
+
+  mkExtensionSymlink = ext: {
+    name = ".librewolf/gaocorkf.default/extensions/${ext.passthru.addonId}.xpi";
+    value = {
+      source = "${ext}/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/${ext.passthru.addonId}.xpi";
+    };
+  };
+  
+  extensions = [
+    firefox-addons.bitwarden
+    firefox-addons.ublock-origin
+    firefox-addons.darkreader
+    firefox-addons.privacy-badger
+    firefox-addons.localcdn
+    firefox-addons.sponsorblock
+    firefox-addons.return-youtube-dislikes
+    firefox-addons.youtube-shorts-block
+    firefox-addons.duckduckgo-privacy-essentials
+  ];
+in
+{
+  home.file = builtins.listToAttrs (map mkExtensionSymlink extensions);
+
   programs.firefox = {
     enable = true;
-    #package = pkgs.librewolf;
-    profiles.johan = {
+    package = pkgs.librewolf;
+    profiles.default = {
+      isDefault = true;
+      id = 0;
       settings = {
         "cookiebanners.service.mode.privateBrowsing" = 2;
         "cookiebanners.service.mode" = 2;
+        "network.cookie.cookieBehavior" = 0;
         "network.cookie.lifetimePolicy" = 0;
         "privacy.clearOnShutdown.cookies" = false;
-        "privacy.clearOnShutdown.history" = true;
+        "privacy.clearOnShutdown.cache" = true;
+        "privacy.clearOnShutdown.history" = false;
         "privacy.donottrackheader.enabled" = true;
         "privacy.trackingprotection.emailtracking.enabled" = true;
         "privacy.trackingprotection.socialtracking.enabled" = true;
@@ -47,18 +76,15 @@
         "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
         "browser.newtabpage.activity-stream.showSearch" = true;
         "browser.newtabpage.enabled" = true;
+        "xpinstall.signatures.required" = false;
+        "extensions.autoDisableScopes" = 0;
+        "extensions.enabledScopes" = 15;
       };
-      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-        bitwarden
-        ublock-origin
-        darkreader
-        privacy-badger
-        localcdn
-        sponsorblock
-        return-youtube-dislikes
-        youtube-shorts-block
-        duckduckgo-privacy-essentials
-      ];
     };
   };
 }
+
+
+
+
+
