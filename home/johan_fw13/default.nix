@@ -23,11 +23,16 @@
     usbutils
     pdfpc
     bitwarden-desktop
+    openjdk21
   ];
 
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      vscjava.vscode-java-pack
+      redhat.java
+    ];
   };
 
   home.sessionVariables = {

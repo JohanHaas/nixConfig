@@ -28,7 +28,6 @@
       wayland = true;
     };
 
-    defaultSession = "niri";
     sessionPackages = [
       inputs.niri.packages."${pkgs.system}".niri
     ];
@@ -39,6 +38,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   hardware.enableAllFirmware = true;
+  services.fstrim.enable = true; 
+  hardware.enableRedistributableFirmware = true; 
 
   networking.networkmanager.enable = true;
 

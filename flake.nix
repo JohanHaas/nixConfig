@@ -90,9 +90,8 @@
         };
 
         modules = [
-
-
-
+          ./hosts/desktop
+          ./usrs
           inputs.disko.nixosModules.disko
           ./disko/disko-desktop.nix
         ];

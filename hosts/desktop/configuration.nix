@@ -10,13 +10,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    pulseaudio
     guitarix
-    jack2
     qjackctl
-
-    distrobox
   ];
+
+  programs.steam.enable = true;
 
   services.desktopManager.gnome.enable = true;
 

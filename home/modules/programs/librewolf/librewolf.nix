@@ -14,13 +14,17 @@ let
   
   extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
     bitwarden
-    ublock-origin
     darkreader
     privacy-badger
     localcdn
+
+    ublock-origin
     sponsorblock
     return-youtube-dislikes
     youtube-shorts-block
+    youtube-no-translation
+
+    
     duckduckgo-privacy-essentials
   ];
 in

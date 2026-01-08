@@ -13,9 +13,7 @@
     spice
     spice-gtk
     virtiofsd
-    pulseaudio
     guitarix
-    jack2
     qjackctl
 
     distrobox
@@ -23,6 +21,12 @@
   
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.displayManager = {
+    defaultSession = "niri";
+    sessionPackages = [
+      inputs.niri.packages."${pkgs.system}".niri
+    ];
+  };
 
   virtualisation.docker.enable = true;
 
@@ -30,6 +34,8 @@
     enable = false;
     dockerCompat = true;
   };
+
+  hardware.cpu.amd.updateMicrocode = true;
 
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [
