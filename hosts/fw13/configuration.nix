@@ -3,8 +3,10 @@
   lib,
   pkgs,
   inputs,
+  home-manager,
   ...
-}: {
+}:
+{
   imports = [
     ../modules
   ];

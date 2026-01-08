@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../modules/userImports/johan_idea.nix
+    ../modules/userImports/johan_desktop.nix
   ];
 
   home.username = "johan";
@@ -14,13 +14,17 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    discord
+    spotify
+    wasistlos
+    pavucontrol
+    usbutils
+    bitwarden-desktop
   ];
-
-  home.file = {
-  };
 
   home.sessionVariables = {
   };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

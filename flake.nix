@@ -55,7 +55,7 @@
       idea = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs self;
+          inherit inputs;
         };
         modules = [
           ./hosts/common
@@ -70,7 +70,7 @@
       fw13 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs self;
+          inherit inputs;
         };
         modules = [
           ./hosts/common
@@ -86,14 +86,16 @@
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs self;
+          inherit inputs;
         };
 
         modules = [
+          ./hosts/common
           ./hosts/desktop
           ./usrs
           inputs.disko.nixosModules.disko
           ./disko/disko-desktop.nix
+          inputs.home-manager.nixosModules.default
         ];
       };
     };
@@ -121,6 +123,18 @@
         modules = [
           ./home/common
           ./home/johan_fw13
+          inputs.nvim-config.homeManagerModules.default
+        ];
+      };
+
+      "johan@desktop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs self;
+        };
+        modules = [
+          ./home/common
+          ./home/johan_desktop
           inputs.nvim-config.homeManagerModules.default
         ];
       };

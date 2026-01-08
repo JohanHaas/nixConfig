@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../modules/userImports/johan_main.nix
+    ../modules/userImports/johan_fw13.nix
   ];
 
   home.username = "johan";
