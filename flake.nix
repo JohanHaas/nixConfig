@@ -14,8 +14,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +46,7 @@
       inherit system;
       config.allowUnfree = true;
       overlays = [
+        inputs.chachyos-kernel.self.overlays.default
       ];
     };
   in {
