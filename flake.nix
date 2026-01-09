@@ -14,6 +14,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
