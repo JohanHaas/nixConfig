@@ -32,12 +32,6 @@
       inputs.niri.packages."${pkgs.system}".niri
     ];
   };
-  services.displayManager = {
-    defaultSession = "niri";
-    sessionPackages = [
-      inputs.niri.packages."${pkgs.system}".niri
-    ];
-  };
 
   virtualisation.docker.enable = true;
 
