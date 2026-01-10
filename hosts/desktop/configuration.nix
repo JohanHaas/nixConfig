@@ -18,8 +18,15 @@
 
   programs.steam.enable = true;
 
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+ 
+
   services.desktopManager.gnome.enable = true;
-  services.desktopManager.cosmic.enable = true;
+  services.gnome.core-apps.enable = false;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+  ];
 
   virtualisation.docker.enable = true;
 

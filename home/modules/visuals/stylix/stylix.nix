@@ -16,12 +16,20 @@
 
     targets = {
       gtk.enable = true;
+      alacritty.enable = true;
     };
 
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 20;
+    };
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "Hack" ]; };
+        name = "Hack Nerd Font";
+      };
     };
   };
 

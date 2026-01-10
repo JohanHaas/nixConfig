@@ -8,7 +8,6 @@
 }:
 {
   imports = [
-    ../modules
   ];
 
   environment.systemPackages = with pkgs; [
@@ -23,6 +22,16 @@
 
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.displayManager = {
+    gdm = {
+      enable = true;
+      wayland = true;
+    };
+
+    sessionPackages = [
+      inputs.niri.packages."${pkgs.system}".niri
+    ];
+  };
   services.displayManager = {
     defaultSession = "niri";
     sessionPackages = [

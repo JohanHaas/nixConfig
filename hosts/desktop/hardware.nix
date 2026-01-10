@@ -8,6 +8,7 @@
 
   hardware.cpu.amd.updateMicrocode = true;
   boot.kernelParams = [ "amd_pstate=active" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   
   hardware.graphics = {
     enable = true;

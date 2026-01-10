@@ -46,7 +46,6 @@
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        inputs.chachyos-kernel.self.overlays.default
       ];
     };
   in {
