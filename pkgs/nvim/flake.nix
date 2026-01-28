@@ -38,7 +38,6 @@
       home.file.".tex/.keep".text = "";
 
       home.packages = with pkgs; [
-        lua-language-server
         
         texliveFull
         texlivePackages.enumitem
@@ -68,6 +67,9 @@
           #autopairs
           nvim-autopairs
           luasnip
+
+          #treesitter
+          nvim-treesitter.withAllGrammars
 
           vimtex
           

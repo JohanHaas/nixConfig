@@ -23,7 +23,9 @@
     usbutils
     pdfpc
     bitwarden-desktop
-    openjdk21
+    javaPackages.compiler.openjdk25
+
+    protonvpn-gui
   ];
 
   programs.vscode = {

@@ -24,3 +24,4 @@ require("plugins.vimtex")
 
 require("plugins.luasnip")
 
+require("plugins.treesitter")

@@ -28,7 +28,7 @@
     gnome-tour
   ];
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [
@@ -53,11 +53,6 @@
   ];
 
   services.printing.enable = false;
-
-  #powermenu
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-  '';
 
   networking.hostName = "nix-btw";
 

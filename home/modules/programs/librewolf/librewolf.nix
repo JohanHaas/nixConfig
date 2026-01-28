@@ -62,6 +62,10 @@
         "xpinstall.signatures.required" = false;
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
+        "layout.css.prefers-color-scheme.content-override" = 0; 
+        "ui.systemUsesDarkTheme" = 1;
+        "browser.theme.content-theme" = 0; 
+        "browser.theme.toolbar-theme" = 0;
       };
     };
   };

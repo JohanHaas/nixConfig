@@ -1,9 +1,13 @@
 {
+  device,
+  ...
+}:
+{
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/${device}";
         content = {
           type = "gpt";
           partitions = {
@@ -26,7 +30,7 @@
                 type = "luks";
                 name = "cryptroot";
                 settings = {
-                  allowDiscards = true;  # für SSDs empfohlen
+                  allowDiscards = true;
                 };
                 content = {
                   type = "btrfs";
