@@ -20,6 +20,10 @@
     pavucontrol
     usbutils
     bitwarden-desktop
+    prismlauncher
+    ollama
+
+    lutris
   ];
 
   home.sessionVariables = {

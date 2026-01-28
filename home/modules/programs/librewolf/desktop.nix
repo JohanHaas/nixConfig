@@ -1,10 +1,11 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
-  profileDir = "gaocorkf.default";
+  profileDir = "fmoq3h2d.default";
 
   mkExtensionSymlink = ext: {
     name = ".librewolf/${profileDir}/extensions/${ext.passthru.addonId}.xpi";

@@ -5,6 +5,7 @@
   ...
 }:
 {
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   hardware.cpu.amd.updateMicrocode = true;
   boot.kernelParams = [ "amd_pstate=active" ];
@@ -15,8 +16,15 @@
     enable32Bit = true; 
     extraPackages = with pkgs; [
       libva
-      vaapiVdpau
       libvdpau-va-gl
+      libva-vdpau-driver 
     ];
-  }; 
+  };
+
+  powerManagement.cpuFreqGovernor = "performance";
+
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp; 
+  };
 }

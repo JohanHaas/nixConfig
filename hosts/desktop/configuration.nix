@@ -14,6 +14,8 @@
   environment.systemPackages = with pkgs; [
     guitarix
     qjackctl
+    rustdesk
+
   ];
 
   programs.steam.enable = true;
@@ -23,7 +25,7 @@
  
 
   services.desktopManager.gnome.enable = true;
-  services.gnome.core-apps.enable = false;
+  services.gnome.core-apps.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
   ];
@@ -51,6 +53,8 @@
       value = "-19";
     }
   ];
+
+  programs.gamemode.enable = true;
 
   services.printing.enable = false;
 
