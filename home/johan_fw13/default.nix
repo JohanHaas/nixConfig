@@ -26,16 +26,11 @@
     javaPackages.compiler.openjdk25
 
     protonvpn-gui
-  ];
+    signal-desktop
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      vscjava.vscode-java-pack
-      redhat.java
-    ];
-  };
+    arduino-ide
+    wl-mirror
+];
 
   home.sessionVariables = {
   };
@@ -51,17 +46,17 @@
         identitiesOnly = true;
       };
 
-      "netcup-rootUser" = {
-        hostname = "152.53.239.157";
-        user = "nixer";
-        identityFile = "~/ssh-keys/rootUser";
+      "vps" = {
+        hostname = "10.100.0.1";
+        user = "admin";
+        identityFile = "~/.ssh/admin";
         identitiesOnly = true;
       };
 
-      "netcup-wireguard" = {
-        hostname = "152.53.239.157";
-        user = "wireguard";
-        identityFile = "~/ssh-keys/vpnUser";
+      "home" = {
+        hostname = "10.100.0.2";
+        user = "admin";
+        identityFile = "~/.ssh/admin-home";
         identitiesOnly = true;
       };
     };

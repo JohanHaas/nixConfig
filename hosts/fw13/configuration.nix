@@ -15,12 +15,8 @@
     qjackctl
 
     distrobox
-
-    gnomeExtensions.paperwm
   ];
 
-  services.xserver.enable = true;
-  services.desktopManager.gnome.enable = true;
   services.displayManager = {
     gdm = {
       enable = true;
@@ -33,7 +29,14 @@
     defaultSession = "niri";
   };
 
-  virtualisation.docker.enable = false;
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    xkb.layout = "de";
+  };
 
   virtualisation.podman = {
     enable = true;
@@ -41,6 +44,9 @@
   };
 
   hardware.cpu.amd.updateMicrocode = true;
+
+
+
 
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [

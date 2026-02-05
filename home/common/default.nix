@@ -12,4 +12,8 @@
     wl-clipboard
     nerd-fonts.hack
   ];
+
+  home.sessionVariables = {
+    "EDITOR" = "vim";
+  };
 }

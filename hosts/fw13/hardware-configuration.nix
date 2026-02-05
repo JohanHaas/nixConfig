@@ -70,6 +70,7 @@
       battery = {
         governor = "powersave";
         turbo = "never";
+        epp = "power";
       };
       charger = {
         governor = "ondemand";
