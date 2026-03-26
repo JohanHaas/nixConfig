@@ -27,9 +27,6 @@
 
     protonvpn-gui
     signal-desktop
-
-    arduino-ide
-    wl-mirror
 ];
 
   home.sessionVariables = {

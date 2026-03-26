@@ -11,6 +11,8 @@ environment {
     DISPLAY ":0";
 }
 
+spawn-at-startup "dbus-update-activation-environment --all"
+spawn-at-startup "gnome-keyring-daemon --start --components=secrets"
 
 input {
     
@@ -73,7 +75,7 @@ input {
 output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
-    mode "2256x1504@59.999"
+    mode "2256x1504@59.998"
 
     scale 1.25
 

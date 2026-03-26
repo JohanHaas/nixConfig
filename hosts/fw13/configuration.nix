@@ -14,8 +14,38 @@
     guitarix
     qjackctl
 
-    distrobox
+    brave
+
+    thunderbird
+    
+    gemini-cli
   ];
+
+
+  systemd.user.services.protonmail-bridge = {          
+    description = "Protonmail Bridge";          
+    enable = true;          
+    script = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive --log-level info";          
+    path = [ pkgs.gnome-keyring ]; # HACK: https://github.com/ProtonMail/proton-bridge/issues/176          
+    wantedBy = [ "graphical-session.target" ];          
+    partOf = [ "graphical-session.target" ];
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+  services.desktopManager.gnome.enable = true;
+  services.gnome.core-apps.enable = true;
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+
+
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      address = "/cloud.local/10.100.0.2";
+    };
+  };
 
   services.displayManager = {
     gdm = {
@@ -29,24 +59,19 @@
     defaultSession = "niri";
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    xkb.layout = "de";
-  };
-
+  #services.xserver = {
+  #  enable = true;
+  #  desktopManager = {
+  #    xterm.enable = false;
+  #    xfce.enable = false;
+  #  };
+  #  xkb.layout = "de";
   virtualisation.podman = {
-    enable = true;
+    enable = false;
     dockerCompat = true;
   };
 
   hardware.cpu.amd.updateMicrocode = true;
-
-
-
 
   services.pipewire.jack.enable = true;
   security.pam.loginLimits = [
@@ -71,7 +96,6 @@
   ];
 
   services.printing.enable = false;
-  services.avahi.enable = false;
 
   services.upower.enable = true;
 

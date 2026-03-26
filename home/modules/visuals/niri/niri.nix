@@ -27,6 +27,7 @@
     topMargin = 0.9;
   };
 
+  #notifications
   services.swaync = {
     enable = true;
     settings = {
@@ -45,7 +46,7 @@
     };
   };
 
-
+  #screen sharing
   xdg.portal = {
     enable = true;
     extraPortals = [

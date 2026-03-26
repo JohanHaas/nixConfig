@@ -15,8 +15,11 @@
     tree
     fzf
     ltrace
-    sops
+
+    openvpn
   ];
+
+  nix.settings.trusted-users = [ "root" "johan" ];
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -59,7 +62,10 @@
   services.fstrim.enable = true; 
   hardware.enableRedistributableFirmware = true; 
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+  };
+
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "de_DE.UTF-8";
