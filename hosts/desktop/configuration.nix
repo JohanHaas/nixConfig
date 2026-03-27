@@ -58,8 +58,6 @@
 
   services.printing.enable = false;
 
-  networking.hostName = "nix-btw";
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

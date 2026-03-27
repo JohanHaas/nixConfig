@@ -14,7 +14,6 @@
     swaybg #background image
     dbus
     xwayland-satellite
-    wlogout
     inputs.agsConfig.packages.${system}.default
     fluent-icon-theme
     libnotify

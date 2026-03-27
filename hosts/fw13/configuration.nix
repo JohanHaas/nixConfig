@@ -8,6 +8,7 @@
 }:
 {
   imports = [
+    ../modules/nfs.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -100,8 +101,6 @@
   services.upower.enable = true;
 
   services.fprintd.enable = false;
-
-  networking.hostName = "nix-btw";
 
   hardware.bluetooth = {
     enable = true;

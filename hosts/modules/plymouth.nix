@@ -21,9 +21,4 @@
       "rd.systemd.show_status=auto"
     ];
   };
-
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "johan";
-  };
 }

@@ -36,7 +36,6 @@
     self,
     nixpkgs,
     home-manager,
-    stylix,
     ...
   }:
   let
@@ -54,8 +53,9 @@
         name = "desktop";
         modules = [
           inputs.disko.nixosModules.disko
-          disko/disko-desktop.nix
+          ./disko/disko-config.nix
         ];
+        specialArgs = { device = "nnvme0n1"; };
       };
     };
 
