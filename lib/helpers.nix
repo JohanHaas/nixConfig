@@ -20,7 +20,7 @@
 
   mkHome = {name, system ? "x86_64-linux", extraSpecialArgs ? {}, modules ? [], nixpkgsConfig ? {}}: home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs {
-      system = system;
+      inherit system;
       config = {
         allowUnfree = true;
         } // nixpkgsConfig;
