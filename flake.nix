@@ -7,11 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     disko = {
@@ -19,13 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:YaLTeR/niri";
 
     niri-config.url = "path:pkgs/niri-config";
-
     nvim-config.url = "path:pkgs/nvim";
-
     agsConfig.url = "github:JohanHaas/agsConfig";
+
+    niri.url = "github:YaLTeR/niri";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     stylix = {
       url = "github:danth/stylix";
@@ -39,105 +38,30 @@
     home-manager,
     stylix,
     ...
-  }: let
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-      ];
-    };
+  }:
+  let
+    helpers = import ./lib/helpers.nix { inherit inputs nixpkgs home-manager self; };
   in {
-    #nixos-configurations
-
     nixosConfigurations = {
-      idea = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-        };
+      fw13 = helpers.mkHost {
+        name = "fw13";
         modules = [
-          ./hosts/common
-          ./usrs
-          ./hosts/nix-tests
-          inputs.disko.nixosModules.disko
-          ./disko/disko-config.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-
-      fw13 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/common
-          ./usrs
-          ./hosts/fw13
-          #inputs.disko.nixosModules.disko
-          #./disko/disko-config.nix
-          inputs.home-manager.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];
       };
 
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-        };
-
+      desktop = helpers.mkHost {
+        name = "desktop";
         modules = [
-          ./hosts/common
-          ./hosts/desktop
-          ./usrs
           inputs.disko.nixosModules.disko
-          ./disko/disko-desktop.nix
-          inputs.home-manager.nixosModules.default
+          disko/disko-desktop.nix
         ];
       };
     };
 
-    # Home-configurations
-
     homeConfigurations = {
-      "johan@idea" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs self;
-        };
-        modules = [
-          ./home/common
-          ./home/johan_idea
-          inputs.nvim-config.homeManagerModules.default
-        ];
-      };
-
-      "johan@fw13" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs self;
-        };
-        modules = [
-          ./home/common
-          ./home/johan_fw13
-          inputs.nvim-config.homeManagerModules.default
-        ];
-      };
-
-      "johan@desktop" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs self;
-        };
-        modules = [
-          ./home/common
-          ./home/johan_desktop
-          inputs.nvim-config.homeManagerModules.default
-        ];
-      };
+      "johan@fw13" = helpers.mkHome { name = "fw13"; };
+      "johan@desktop" = helpers.mkHome { name = "desktop"; };
     };
   };
 }
