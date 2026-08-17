@@ -18,9 +18,21 @@
     brave
 
     thunderbird
-    
-    gemini-cli
+
+    man-pages
+    man-pages-posix
+
+    distrobox
   ];
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "johan" ];
+
+  programs.nix-ld.enable = true;
+
+  documentation.enable = true;
+  documentation.man.enable = true;
+  documentation.dev.enable = true;
 
 
   systemd.user.services.protonmail-bridge = {          
@@ -41,13 +53,6 @@
   environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
 
 
-  services.dnsmasq = {
-    enable = true;
-    settings = {
-      address = "/cloud.local/10.100.0.2";
-    };
-  };
-
   services.displayManager = {
     gdm = {
       enable = true;
@@ -67,10 +72,15 @@
   #    xfce.enable = false;
   #  };
   #  xkb.layout = "de";
-  virtualisation.podman = {
-    enable = false;
-    dockerCompat = true;
+
+  virtualisation.docker = {
+    enable = true;
   };
+
+  #virtualisation.podman = {
+  #  enable = true;
+  #  dockerCompat = true;
+  #};
 
   hardware.cpu.amd.updateMicrocode = true;
 
@@ -96,7 +106,7 @@
     }
   ];
 
-  services.printing.enable = false;
+  services.printing.enable = true;
 
   services.upower.enable = true;
 

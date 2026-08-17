@@ -13,6 +13,7 @@
       "wheel"
       "libvirtd"
       "audio"
+      "docker"
     ];
     packages = with pkgs; [];
     
