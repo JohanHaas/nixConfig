@@ -65,5 +65,7 @@
   };
   services.blueman.enable = true;
 
+  services.tailscale.enable = true;
+
   system.stateVersion = "25.11";
 }

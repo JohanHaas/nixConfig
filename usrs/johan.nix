@@ -14,6 +14,7 @@
       "libvirtd"
       "audio"
       "docker"
+      "dialout"
     ];
     packages = with pkgs; [];
     

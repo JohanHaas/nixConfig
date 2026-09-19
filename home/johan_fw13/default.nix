@@ -19,6 +19,8 @@ let
     mpmath
     galois
     numpy
+    hypothesis
+    pytest
   ]);
 in
 {
@@ -73,6 +75,21 @@ in
     ripgrep
 
     tor-browser
+
+    go
+    
+    ocaml
+    dune
+    opam
+    ocamlPackages.lsp
+    gmp
+    pkg-config
+
+    saber
+
+    arduino-ide
+
+    sops
   ];
 
   home.sessionVariables = {
@@ -93,22 +110,21 @@ in
     enable = true;
 
     matchBlocks = {
+      # Schluessel "ssh github" kommt aus Vaultwarden ueber den rbw-Agent.
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_github";
-        identitiesOnly = true;
       };
 
       "vps" = {
-        hostname = "10.100.0.1";
+        hostname = "159.69.23.42";
         user = "admin";
         identityFile = "~/.ssh/admin";
         identitiesOnly = true;
       };
 
       "home" = {
-        hostname = "10.100.0.2";
+        hostname = "100.64.0.1";
         user = "admin";
         identityFile = "~/.ssh/admin-home";
         identitiesOnly = true;
@@ -117,6 +133,24 @@ in
         hostname = "gitlab.ruhr-uni-bochum.de";
         identityFile = "~/.ssh/gitlabRUB";
       };
+    };
+
+    # SSH-Schluessel kommen aus Vaultwarden ueber den Agent von rbw. Der Agent
+    # kennt das Terminal nicht, aus dem ssh aufgerufen wird; deshalb vorher
+    # hier entsperren, damit die Abfrage im aktuellen Terminal erscheint.
+    extraConfig = ''
+      Match exec "rbw unlocked || rbw unlock; true"
+        IdentityAgent ''${XDG_RUNTIME_DIR}/rbw/ssh-agent-socket
+    '';
+  };
+
+  programs.rbw = {
+    enable = true;
+    settings = {
+      email = "mail@johanhaas.de";
+      base_url = "https://vault.johanhaas.de";
+      pinentry = pkgs.pinentry-curses;
+      lock_timeout = 3600;
     };
   };
 

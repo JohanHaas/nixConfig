@@ -65,6 +65,8 @@
     defaultSession = "niri";
   };
 
+  services.tailscale.enable = true;
+
   #services.xserver = {
   #  enable = true;
   #  desktopManager = {

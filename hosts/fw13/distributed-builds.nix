@@ -13,22 +13,13 @@
     };
 
     buildMachines = [
-      { #vps
-        hostName = "10.100.0.2";
+      { #homelab ueber tailnet
+        hostName = "100.64.0.1";
         sshUser = "admin";
         sshKey = "/root/.ssh/admin-home";
         system = "x86_64-linux"; 
         maxJobs = 12;
         speedFactor = 1;         
-        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-      }
-      { #local
-        hostName = "192.168.178.181";
-        sshUser = "admin";
-        sshKey = "/root/.ssh/admin-home";
-        system = "x86_64-linux"; 
-        maxJobs = 12;
-        speedFactor = 100;         
         supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
       }
     ];

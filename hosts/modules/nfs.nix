@@ -22,7 +22,7 @@
   };
 
   fileSystems."/mnt/storage_vps" = {
-    device = "10.100.0.2:/storage";
+    device = "100.64.0.1:/storage";
     fsType = "nfs";
     options = [ 
       "x-systemd.automount" 
