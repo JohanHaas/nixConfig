@@ -138,8 +138,10 @@ in
     # SSH-Schluessel kommen aus Vaultwarden ueber den Agent von rbw. Der Agent
     # kennt das Terminal nicht, aus dem ssh aufgerufen wird; deshalb vorher
     # hier entsperren, damit die Abfrage im aktuellen Terminal erscheint.
+    # stdin/stderr sind bei Match exec (und unter git) nicht am Terminal; das
+    # steuernde Terminal (ps -o tty=, z. B. pts/3) erbt ssh aber immer.
     extraConfig = ''
-      Match exec "rbw unlocked || rbw unlock; true"
+      Match exec "rbw unlocked 2>/dev/null || { set -- $(ps -o tty= -p $$); case $1 in pts/*|tty*) RBW_TTY=/dev/$1 rbw unlock;; esac; }; true"
         IdentityAgent ''${XDG_RUNTIME_DIR}/rbw/ssh-agent-socket
     '';
   };
